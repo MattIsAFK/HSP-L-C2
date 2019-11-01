@@ -13,22 +13,38 @@ namespace Profil_Rechner_Console
             // Auswahl Variabeln
             int AuswahlProfil;
 
+
+
+            int option =0;
+
+            Console.WriteLine("Bitte wählen Sie einen Profiltyp aus. Tippen Sie '1' für Rechteck oder '2' für Kreis");
+            option = Convert.ToInt32(Console.ReadLine());
+
+            switch (option)
+            {
+                case 1:
+                    Rechteck();
+                    break;
+                case 2:
+                    Kreis();
+                    break;
+                default:
+                    Console.WriteLine("Eingabe ungültig");
+                    Console.ReadLine();
+                    break;
+            }
+
+        }
+
+        static void Rechteck()
+        {
             /// Variabeln für Vierkantprofil
             double zBreite;
             double zLänge;
             double zHöhe;
-            /// Variabeln für Kreisprofil
-            double kRadius;
-            double kLänge;
-
-            Console.WriteLine("Welches Profil soll berechnet werden?");
-            Console.WriteLine("Für Vierkantprofil geben Sie bitte 1 ein");
-            Console.WriteLine("Für Kreisprofil geben Sie bitte 2 ein");
-            AuswahlProfil =Convert.ToInt32 (Console.ReadLine());
+         
 
 
-            if (AuswahlProfil <= 1)
-            {
                 // Eingabe Vierkantprofil
                 Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
                 Console.Write("Breite:");
@@ -49,30 +65,9 @@ namespace Profil_Rechner_Console
                 Console.WriteLine("Gewicht:" + VierKantGewichtRechner(zBreite, zLänge, zHöhe, 7900) + " kg");
                 Console.ReadLine();
 
-            }
-            else _ = (AuswahlProfil >= 2);
-           { 
-            /// Eingabe Kreisprofil
-            /// 
-            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Kreisprofil ein.");
-            Console.Write("Radius:");
-            kRadius = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Länge:");
-            kLänge = Convert.ToDouble(Console.ReadLine());
-            Console.ReadLine();
 
-            ///Ausgabe Kreisprofil
-
-            Console.WriteLine("Ergebnisse");
-            Console.ReadLine();
-            Console.WriteLine("Volumen:" + KreisVolumenRechner(kRadius, kLänge) + " m³");
-            Console.WriteLine("Oberfläche:" + KreisOberflächenRechner(kRadius, kLänge) + " m²");
-            Console.WriteLine("Mantelfläche:" + KreisMantelflächeRechner(kRadius, kLänge) + " m²");
-            Console.WriteLine("Grundfläche:" + KreisGrundflächeRechner(kRadius ) + " m²");
-            Console.WriteLine("Gewicht:" + KreisGewichtRechner( kRadius,  kLänge) + " kg");
-            Console.ReadLine();
         }
-        }
+ 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //// Methoden
@@ -82,6 +77,36 @@ namespace Profil_Rechner_Console
             double eFläche;
             return eFläche = zBreite * zLänge;
         }
+
+
+        //TODO WiP
+        static void Kreis()
+        {
+        double kRadius;
+        double kLänge;
+        /// Eingabe Kreisprofil
+        /// 
+        Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Kreisprofil ein.");
+        Console.Write("Radius:");
+        kRadius = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Länge:");
+        kLänge = Convert.ToDouble(Console.ReadLine());
+        Console.ReadLine();
+
+        ///Ausgabe Kreisprofil
+
+        Console.WriteLine("Ergebnisse");
+        Console.ReadLine();
+
+        Console.WriteLine("Volumen:" + KreisVolumenRechner(kRadius, kLänge) + " m³");
+        Console.WriteLine("Oberfläche:" + KreisOberflächenRechner(kRadius, kLänge) + " m²");
+        Console.WriteLine("Mantelfläche:" + KreisMantelflächeRechner(kRadius, kLänge) + " m²");
+        Console.WriteLine("Grundfläche:" + KreisGrundflächeRechner(kRadius) + " m²");
+        Console.WriteLine("Gewicht:" + KreisGewichtRechner(kRadius, kLänge) + " kg");
+        Console.ReadLine();
+    }
+
+
         // volumen berechnen Vierkantprofil
         static double VierKantVolumenRechner(double zBreite, double zLänge, double zHöhe)
         {
