@@ -62,6 +62,7 @@ namespace Profil_Rechner_Console
         static void Kreis()
         {
             Console.WriteLine("Schade, noch nicht da :(");
+            Console.ReadLine();
         }
 
         // Fläche errechnen lassen
