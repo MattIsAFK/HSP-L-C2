@@ -10,7 +10,29 @@ namespace Profil_Rechner_Console
     {
         static void Main(string[] args)
         {
+            int option =0;
 
+            Console.WriteLine("Bitte wählen Sie einen Profiltyp aus. Tippen Sie '1' für Rechteck oder '2' für Kreis");
+            option = Convert.ToInt32(Console.ReadLine());
+
+            switch (option)
+            {
+                case 1:
+                    Rechteck();
+                    break;
+                case 2:
+                    Kreis();
+                    break;
+                default:
+                    Console.WriteLine("Eingabe ungültig");
+                    Console.ReadLine();
+                    break;
+            }
+
+        }
+
+        static void Rechteck()
+        {
             double zBreite;
             double zLänge;
             double zHöhe;
@@ -29,12 +51,19 @@ namespace Profil_Rechner_Console
 
             Console.WriteLine("Ergebnisse");
             Console.ReadLine();
-            Console.WriteLine("Fläche:" + FlächenRechner(zBreite, zLänge)+" m²");
-            Console.WriteLine("Volumen:" + VolumenRechner(zBreite, zLänge, zHöhe) +" m³");
-            Console.WriteLine("Oberfläche:" + OberflächenRechner(zBreite, zLänge, zHöhe)+ " m²");
+            Console.WriteLine("Fläche:" + FlächenRechner(zBreite, zLänge) + " m²");
+            Console.WriteLine("Volumen:" + VolumenRechner(zBreite, zLänge, zHöhe) + " m³");
+            Console.WriteLine("Oberfläche:" + OberflächenRechner(zBreite, zLänge, zHöhe) + " m²");
             Console.WriteLine("Gewicht:" + GewichtRechner(zBreite, zLänge, zHöhe, 7900) + " kg");
             Console.ReadLine();
         }
+
+        //TODO WiP
+        static void Kreis()
+        {
+            Console.WriteLine("Schade, noch nicht da :(");
+        }
+
         // Fläche errechnen lassen
         static double FlächenRechner (double zBreite, double zLänge)
         {
