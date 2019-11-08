@@ -8,12 +8,15 @@ namespace Profil_Rechner_Console
 {
     abstract class Geometrie
     {
+        /// <summary>
+        /// Länge der Profilgeometrie
+        /// </summary>
         protected double zLaenge;
         /// <summary>
         /// Erzeugt eine neue Geometrie der Länge 0.
         /// Kann nur von "Kindern" aufgerufen werden da Klasse abstract.
         /// </summary>
-        public Geometrie():this(0) {}
+        public Geometrie() : this(0) { }
 
         /// <summary>
         /// Erzeugt eine neue Geometrie von entsprechender Länge.
@@ -22,7 +25,7 @@ namespace Profil_Rechner_Console
         /// <param name="pLaenge">Länge des zu erzeugenden Profils</param>
         public Geometrie(double pLaenge)
         {
-            zLaenge = pLaenge;
+            this.setLaenge(pLaenge);
         }
 
         public abstract double GetFlaecheninhalt();
@@ -31,14 +34,23 @@ namespace Profil_Rechner_Console
 
         public abstract double GetVolumen();
 
+        /// <summary>
+        /// Getter der Profillänge
+        /// </summary>
+        /// <returns>Profillänge</returns>
         public double getLaenge()
         {
             return zLaenge;
         }
 
+        /// <summary>
+        /// Überprüft den Wert für die Länge daruf, dass dieser nicht negativ wird und setzt die Objektvariable entsprechend.
+        /// </summary>
+        /// <param name="pLaenge">Länge der Profilgeometrie</param>
         public void setLaenge(double pLaenge)
         {
-            zLaenge = pLaenge;
+            if (pLaenge >= 0) zLaenge = pLaenge;
+            else throw new ArgumentOutOfRangeException("Länge muss einen positiven Wert oder 0 annehmen");
         }
 
 
