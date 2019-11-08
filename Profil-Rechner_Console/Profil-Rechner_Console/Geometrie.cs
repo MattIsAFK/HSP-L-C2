@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace Profil_Rechner_Console
 {
-    class Geometrie
+    abstract class Geometrie
     {
         public Geometrie()
         {
 
         }
+
+        public abstract double GetFlaecheninhalt();
+  
+
+
+
+
+
+
     }
+
 }
