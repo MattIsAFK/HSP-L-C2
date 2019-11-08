@@ -31,7 +31,6 @@ namespace Profil_Rechner_Console
                             break;
                         default:
                             throw new ArgumentOutOfRangeException("Eingabe muss '1' oder '2' sein!");
-                            break;
                     }
                     checkmate = false;
                 }
