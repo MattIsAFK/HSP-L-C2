@@ -10,16 +10,24 @@ namespace Profil_Rechner_Console
     {
         /// Variabeln für Vierkantprofil
         protected double zBreite;
-        protected double zLaenge;
         protected double zHoehe;
 
 
-        public Rechteck()
+        public Rechteck():base()
         {
             zBreite = 0;
-            zLaenge = 0;
             zHoehe = 0;
         }
+
+        public Rechteck(double pBreite, double pHoehe) : this(pBreite, pHoehe, 0) { }
+      
+
+        public Rechteck(double pBreite, double pHoehe, double pLaenge):base(pLaenge)
+        {
+            zBreite = pBreite;
+            zHoehe = pHoehe;
+        }
+
         
         public override double GetFlaecheninhalt()
         {
@@ -47,15 +55,7 @@ namespace Profil_Rechner_Console
             zBreite = pBreite;
         }
 
-        public double getLaenge()
-        {
-            return zLaenge;
-        }
 
-        public void setLaenge(double pLaenge)
-        {
-            zLaenge = pLaenge;
-        }
 
         public double getHoehe()
         {
