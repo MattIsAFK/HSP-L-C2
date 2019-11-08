@@ -17,7 +17,7 @@ namespace Profil_Rechner_Console
 
         public abstract double GetFlachenTraegheit();
 
-
+        public abstract double GetVolumen();
 
 
 
