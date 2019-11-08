@@ -14,12 +14,17 @@ namespace Profil_Rechner_Console
 
 
  
-        public Rechteck():base()
-        {
-            zBreite = 0;
-            zHoehe = 0;
-        }
+        /// <summary>
+        /// Erzeugt ein neues Rechteck bei dem alle Variablen auf 0 gesetzt werden. 
+        /// </summary>
+        public Rechteck() : this(0, 0, 0) { }
 
+        /// <summary>
+        /// Erzeugt ein neues Rechteck mit den übergeben Maßen.
+        /// Die Länge des Profils wird 0 gesetzt.
+        /// </summary>
+        /// <param name="pBreite"></param>
+        /// <param name="pHoehe"></param>
         public Rechteck(double pBreite, double pHoehe) : this(pBreite, pHoehe, 0) { }
 
         /// <summary>
@@ -30,7 +35,7 @@ namespace Profil_Rechner_Console
         /// <param name="pLaenge">Länge des Profils</param>
         public Rechteck(double pBreite, double pHoehe, double pLaenge) : base(pLaenge)
         {
-            zBreite = pBreite;
+            if (pBreite >= 0) zBreite = pBreite; else throw new Exception(); 
             zHoehe = pHoehe;
         }
 
@@ -44,11 +49,20 @@ namespace Profil_Rechner_Console
             return zLaenge*zBreite;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Flächenträgheit des Rechteckprofils</returns>
         public override double GetFlachenTraegheit()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Aus den gegeben Parametern wird das Volumen berechnet.
+        /// 
+        /// </summary>
+        /// <returns>Volumen</returns>
         public override double GetVolumen()
         {
             double eVolumen= zBreite * zLaenge * zHoehe;
