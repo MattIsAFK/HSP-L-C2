@@ -53,9 +53,9 @@ namespace Profil_Rechner_Console
             // Ausgabe Vierkantprofil
 
             Console.WriteLine("Ergebnisse");
-            Console.ReadLine();
-            Console.WriteLine("Fläche:" + myRechteck.GetFlaecheninhalt() + " m²");
-            Console.WriteLine("Volumen:" + myRechteck.GetVolumen() + " m³"); 
+
+            try { Console.WriteLine("Fläche:" + myRechteck.GetFlaecheninhalt() + " m²"); } catch (Exception) {}
+            try { Console.WriteLine("Volumen:" + myRechteck.GetVolumen() + " m³"); } catch (Exception) { }
             //Console.WriteLine("Oberfläche:" + VierKantOberflächenRechner(zBreite, zLänge, zHöhe) + " m²");
             //Console.WriteLine("Gewicht:" + VierKantGewichtRechner(zBreite, zLänge, zHöhe, 7900) + " kg");
             Console.ReadLine();
