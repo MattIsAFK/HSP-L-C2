@@ -8,9 +8,15 @@ namespace Profil_Rechner_Console
 {
     abstract class Geometrie
     {
+        protected double zLaenge;
         public Geometrie()
         {
+            zLaenge = 0;
+        }
 
+        public Geometrie(double pLaenge)
+        {
+            zLaenge = pLaenge;
         }
 
         public abstract double GetFlaecheninhalt();
@@ -19,7 +25,15 @@ namespace Profil_Rechner_Console
 
         public abstract double GetVolumen();
 
+        public double getLaenge()
+        {
+            return zLaenge;
+        }
 
+        public void setLaenge(double pLaenge)
+        {
+            zLaenge = pLaenge;
+        }
 
 
     }
