@@ -76,7 +76,8 @@ namespace Profil_Rechner_Console
 
         public void setBreite(double pBreite)
         {
-            zBreite = pBreite;
+            if (pBreite >= 0) zBreite = pBreite;
+            else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
         }
 
 
