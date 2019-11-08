@@ -31,6 +31,12 @@ namespace Profil_Rechner_Console
             throw new NotImplementedException();
         }
 
+        public override double GetVolumen()
+        {
+            double eVolumen= zBreite * zLaenge * zHoehe;
+            return eVolumen;
+        }
+
         public double getBreite()
         {
             return zBreite;
