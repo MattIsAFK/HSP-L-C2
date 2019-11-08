@@ -38,17 +38,49 @@ namespace Profil_Rechner_Console
         static void Rechteck()
         {
 
-                Rechteck myRechteck = new Rechteck();
-
-                // Eingabe Vierkantprofil
-                Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            Rechteck myRechteck = new Rechteck();
+            Boolean checkmate = true;
+            // Eingabe Vierkantprofil
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            do
+            {
                 Console.Write("Breite:");
-                myRechteck.setBreite(Convert.ToDouble(Console.ReadLine()));
+                try
+                {
+                    myRechteck.setBreite(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
                 Console.Write("Länge:");
-                myRechteck.setLaenge(Convert.ToDouble(Console.ReadLine()));
+                try
+                {   
+                    myRechteck.setLaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
                 Console.Write("Höhe:");
-                myRechteck.setHoehe(Convert.ToDouble(Console.ReadLine()));
-                Console.ReadLine();
+                try
+                {
+                    myRechteck.setHoehe(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                 
+            } while (checkmate);
+            
+            Console.ReadLine();       
+
+          
+  
 
             // Ausgabe Vierkantprofil
 
