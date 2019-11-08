@@ -13,6 +13,7 @@ namespace Profil_Rechner_Console
         protected double zHoehe;
 
 
+ 
         public Rechteck():base()
         {
             zBreite = 0;
@@ -20,15 +21,24 @@ namespace Profil_Rechner_Console
         }
 
         public Rechteck(double pBreite, double pHoehe) : this(pBreite, pHoehe, 0) { }
-      
 
-        public Rechteck(double pBreite, double pHoehe, double pLaenge):base(pLaenge)
+        /// <summary>
+        /// Erstellt ein neues Rechteck mit den entsprechenden Maßen
+        /// </summary>
+        /// <param name="pBreite">Breite des Rechtecks</param>
+        /// <param name="pHoehe">Höhe des Rechtecks</param>
+        /// <param name="pLaenge">Länge des Profils</param>
+        public Rechteck(double pBreite, double pHoehe, double pLaenge) : base(pLaenge)
         {
             zBreite = pBreite;
             zHoehe = pHoehe;
         }
 
         
+        /// <summary>
+        /// Berechnet den Flächeninhalt des Rechtecks mit den global verfügbaren Parametern der Klasse.
+        /// </summary>
+        /// <returns>Flächeninhalt</returns>
         public override double GetFlaecheninhalt()
         {
             return zLaenge*zBreite;
