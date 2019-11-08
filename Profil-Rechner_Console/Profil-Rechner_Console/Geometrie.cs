@@ -9,10 +9,7 @@ namespace Profil_Rechner_Console
     abstract class Geometrie
     {
         protected double zLaenge;
-        public Geometrie()
-        {
-            zLaenge = 0;
-        }
+        public Geometrie():this(0) {}
 
         public Geometrie(double pLaenge)
         {
