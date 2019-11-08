@@ -339,3 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 *.exe
+*.cache
+Profil-Rechner_Console/Profil-Rechner_Console/obj/Debug/Profil-Rechner_Console.pdb
