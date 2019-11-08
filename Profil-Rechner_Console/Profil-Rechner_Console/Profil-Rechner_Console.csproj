@@ -44,8 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Geometrie.cs" />
+    <Compile Include="Geometrien\Kreis.cs" />
+    <Compile Include="Geometrien\Sechseck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Geometrien\Rechteck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

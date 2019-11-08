@@ -13,8 +13,7 @@ namespace Profil_Rechner_Console
             // Auswahl Variabeln
             int AuswahlProfil;
 
-
-
+            Geometrie myGeo = new Rechteck();           
             int option =0;
 
             Console.WriteLine("Bitte wählen Sie einen Profiltyp aus. Tippen Sie '1' für Rechteck oder '2' für Kreis");
@@ -38,32 +37,60 @@ namespace Profil_Rechner_Console
 
         static void Rechteck()
         {
-            /// Variabeln für Vierkantprofil
-            double zBreite;
-            double zLänge;
-            double zHöhe;
-         
 
-
-                // Eingabe Vierkantprofil
-                Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            Rechteck myRechteck = new Rechteck();
+            Boolean checkmate = true;
+            // Eingabe Vierkantprofil
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            do
+            {
                 Console.Write("Breite:");
-                zBreite = Convert.ToDouble(Console.ReadLine());
+                try
+                {
+                    myRechteck.setBreite(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
                 Console.Write("Länge:");
-                zLänge = Convert.ToDouble(Console.ReadLine());
+                try
+                {   
+                    myRechteck.setLaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
                 Console.Write("Höhe:");
-                zHöhe = Convert.ToDouble(Console.ReadLine());
-                Console.ReadLine();
+                try
+                {
+                    myRechteck.setHoehe(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                 
+            } while (checkmate);
+            
+            Console.ReadLine();       
 
-                // Ausgabe Vierkantprofil
+          
+  
 
-                Console.WriteLine("Ergebnisse");
-                Console.ReadLine();
-                Console.WriteLine("Fläche:" + VierKantFlächenRechner(zBreite, zLänge) + " m²");
-                Console.WriteLine("Volumen:" + VierKantVolumenRechner(zBreite, zLänge, zHöhe) + " m³");
-                Console.WriteLine("Oberfläche:" + VierKantOberflächenRechner(zBreite, zLänge, zHöhe) + " m²");
-                Console.WriteLine("Gewicht:" + VierKantGewichtRechner(zBreite, zLänge, zHöhe, 7900) + " kg");
-                Console.ReadLine();
+            // Ausgabe Vierkantprofil
+
+            Console.WriteLine("Ergebnisse");
+
+            try { Console.WriteLine("Fläche:" + myRechteck.GetFlaecheninhalt() + " m²"); } catch (Exception) {}
+            try { Console.WriteLine("Volumen:" + myRechteck.GetVolumen() + " m³"); } catch (Exception) { }
+            //Console.WriteLine("Oberfläche:" + VierKantOberflächenRechner(zBreite, zLänge, zHöhe) + " m²");
+            //Console.WriteLine("Gewicht:" + VierKantGewichtRechner(zBreite, zLänge, zHöhe, 7900) + " kg");
+            Console.ReadLine();
 
 
         }
@@ -71,13 +98,19 @@ namespace Profil_Rechner_Console
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //// Methoden
-        // Fläche errechnen lassen Vierkantprofil
+
+
+
+        
+            
+         /* Fläche errechnen lassen Vierkantprofil
+       
         static double VierKantFlächenRechner(double zBreite, double zLänge)
         {
             double eFläche;
             return eFläche = zBreite * zLänge;
         }
-
+        */
 
         //TODO WiP
         static void Kreis()
@@ -107,12 +140,14 @@ namespace Profil_Rechner_Console
     }
 
 
-        // volumen berechnen Vierkantprofil
+        /* volumen berechnen Vierkantprofil
         static double VierKantVolumenRechner(double zBreite, double zLänge, double zHöhe)
         {
             double eVolumen;
             return eVolumen = zBreite * zLänge * zHöhe;
         }
+        */
+
         //Gewicht berechnen Vierkantprofil
         static double VierKantGewichtRechner(double zBreite, double zLänge, double zHöhe, double zDichte)
         {
