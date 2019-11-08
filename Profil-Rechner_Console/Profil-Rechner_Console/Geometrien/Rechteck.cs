@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Profil_Rechner_Console
 {
-    class Rechteck:Geometrie
+    class Rechteck : Geometrie
     {
         /// Variabeln für Vierkantprofil
         protected double zBreite;
         protected double zHoehe;
 
 
- 
+
         /// <summary>
         /// Erzeugt ein neues Rechteck bei dem alle Variablen auf 0 gesetzt werden. 
         /// </summary>
@@ -35,18 +35,18 @@ namespace Profil_Rechner_Console
         /// <param name="pLaenge">Länge des Profils</param>
         public Rechteck(double pBreite, double pHoehe, double pLaenge) : base(pLaenge)
         {
-            if (pBreite >= 0) zBreite = pBreite; else throw new Exception(); 
-            zHoehe = pHoehe;
+            this.setBreite(pBreite);
+            this.setHoehe(pHoehe);
         }
 
-        
+
         /// <summary>
         /// Berechnet den Flächeninhalt des Rechtecks mit den global verfügbaren Parametern der Klasse.
         /// </summary>
         /// <returns>Flächeninhalt</returns>
         public override double GetFlaecheninhalt()
         {
-            return zLaenge*zBreite;
+            return zLaenge * zBreite;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Profil_Rechner_Console
         /// <returns>Volumen</returns>
         public override double GetVolumen()
         {
-            double eVolumen= zBreite * zLaenge * zHoehe;
+            double eVolumen = zBreite * zLaenge * zHoehe;
             return eVolumen;
         }
 
@@ -74,6 +74,12 @@ namespace Profil_Rechner_Console
             return zBreite;
         }
 
+        /// <summary>
+        /// Überprüft, dass der übergebene Parameter nicht negativ ist.
+        /// Im positiven Fall wird die Objektvariable entsprechend gesetzt, andernfalls eine Exception geworfen
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <param name="pBreite">Breite des Rechtecks</param>
         public void setBreite(double pBreite)
         {
             if (pBreite >= 0) zBreite = pBreite;
@@ -87,9 +93,16 @@ namespace Profil_Rechner_Console
             return zHoehe;
         }
 
+        /// <summary>
+        /// Überprüft, dass der übergebene Parameter nicht negativ ist.
+        /// Im positiven Fall wird die Objektvariable entsprechend gesetzt, andernfalls eine Exception geworfen
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <param name="pHoehe">Höhe des Rechtecks</param>
         public void setHoehe(double pHoehe)
         {
-            zHoehe = pHoehe;
+            if (pHoehe >= 0) zHoehe = pHoehe;
+            else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
         }
     }
 
