@@ -8,9 +8,11 @@ namespace Profil_Rechner_Console.Geometrien
 {
     class Kreis:Geometrie
     {
-        public Kreis()
-        {
+        protected double zRadius;
 
+        public Kreis():base()
+        {
+            zRadius = 0;
         }
 
         public override double GetFlaecheninhalt()
