@@ -10,29 +10,34 @@ namespace Profil_Rechner_Console
     {
         static void Main(string[] args)
         {
-            // Auswahl Variabeln
-            int AuswahlProfil;
-
-            Geometrie myGeo = new Rechteck();           
-            int option =0;
+            // Auswahl Variable
+            int auswahlProfil = 0;
+            Boolean checkmate = true;
 
             Console.WriteLine("Bitte wählen Sie einen Profiltyp aus. Tippen Sie '1' für Rechteck oder '2' für Kreis");
-            option = Convert.ToInt32(Console.ReadLine());
-
-            switch (option)
+            do
             {
-                case 1:
-                    Rechteck();
-                    break;
-                case 2:
-                    Kreis();
-                    break;
-                default:
-                    Console.WriteLine("Eingabe ungültig");
-                    Console.ReadLine();
-                    break;
-            }
+                try
+                {
+                    auswahlProfil = Convert.ToInt32(Console.ReadLine());
 
+                    switch (auswahlProfil)
+                    {
+                        case 1:
+                            Rechteck();
+                            break;
+                        case 2:
+                            Kreis();
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("Eingabe muss '1' oder '2' sein!");
+                            break;
+                    }
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Numerische Eingabe erforderlich"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            }while (checkmate);
         }
 
         static void Rechteck()
