@@ -35,8 +35,8 @@ namespace Profil_Rechner_Console
         /// <param name="pLaenge">Länge des Profils</param>
         public Rechteck(double pBreite, double pHoehe, double pLaenge) : base(pLaenge)
         {
-            this.setBreite(pBreite);
-            this.setHoehe(pHoehe);
+            this.SetBreite(pBreite);
+            this.SetHoehe(pHoehe);
         }
 
 
@@ -46,7 +46,7 @@ namespace Profil_Rechner_Console
         /// <returns>Flächeninhalt</returns>
         public override double GetFlaecheninhalt()
         {
-            return getHoehe() * getBreite();
+            return GetHoehe() * GetBreite();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Profil_Rechner_Console
         /// <returns>Volumen</returns>
         public override double GetVolumen()
         {
-            double eVolumen = getBreite() * getLaenge() * getHoehe();
+            double eVolumen = GetBreite() * GetLaenge() * GetHoehe();
             return eVolumen;
         }
 
@@ -75,7 +75,7 @@ namespace Profil_Rechner_Console
         /// <param name="pDichte">Dichte des Profils</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <returns>Gewicht des Profils</returns>
-        public double getGewicht(double pDichte)
+        public double GetGewicht(double pDichte)
         {
             double eGewicht = -1;
 
@@ -94,8 +94,8 @@ namespace Profil_Rechner_Console
             double eOberflaeche = 0;
 
             eOberflaeche += 2 * GetFlaecheninhalt();
-            eOberflaeche += 2 * getBreite() * getLaenge();
-            eOberflaeche += 2 * getHoehe() * getLaenge();
+            eOberflaeche += 2 * GetBreite() * GetLaenge();
+            eOberflaeche += 2 * GetHoehe() * GetLaenge();
 
             return eOberflaeche;
         }
@@ -104,7 +104,7 @@ namespace Profil_Rechner_Console
         /// Getter für das Feld Breite des Rechtecks.
         /// </summary>
         /// <returns>Breite des Rechtecks</returns>
-        public double getBreite()
+        public double GetBreite()
         {
             return zBreite;
         }
@@ -115,7 +115,7 @@ namespace Profil_Rechner_Console
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <param name="pBreite">Breite des Rechtecks</param>
-        public void setBreite(double pBreite)
+        public void SetBreite(double pBreite)
         {
             if (pBreite >= 0) zBreite = pBreite;
             else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
@@ -126,7 +126,7 @@ namespace Profil_Rechner_Console
         /// Getter der Höhe des Rechtecks.
         /// </summary>
         /// <returns>Höhe des Rechtecks</returns>
-        public double getHoehe()
+        public double GetHoehe()
         {
             return zHoehe;
         }
@@ -137,7 +137,7 @@ namespace Profil_Rechner_Console
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <param name="pHoehe">Höhe des Rechtecks</param>
-        public void setHoehe(double pHoehe)
+        public void SetHoehe(double pHoehe)
         {
             if (pHoehe >= 0) zHoehe = pHoehe;
             else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
