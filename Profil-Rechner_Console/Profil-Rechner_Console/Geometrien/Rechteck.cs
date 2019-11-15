@@ -91,7 +91,10 @@ namespace Profil_Rechner_Console
         }
 
 
-
+        /// <summary>
+        /// Getter der Höhe des Rechtecks.
+        /// </summary>
+        /// <returns>Höhe des Rechtecks</returns>
         public double getHoehe()
         {
             return zHoehe;
