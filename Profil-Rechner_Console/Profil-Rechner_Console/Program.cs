@@ -74,7 +74,7 @@ namespace Profil_Rechner_Console
         {
 
             Rechteck myRechteck = new Rechteck();
-            Boolean checkmate = true;
+            bool checkmate = true;
             // Eingabe Vierkantprofil
             Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
             do
