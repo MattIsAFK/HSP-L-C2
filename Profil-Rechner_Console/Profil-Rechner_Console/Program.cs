@@ -145,20 +145,6 @@ namespace Profil_Rechner_Console
     }
 
 
-        /* volumen berechnen Vierkantprofil
-        static double VierKantVolumenRechner(double zBreite, double zLänge, double zHöhe)
-        {
-            double eVolumen;
-            return eVolumen = zBreite * zLänge * zHöhe;
-        }
-        */
-
-        //Gewicht berechnen Vierkantprofil
-        static double VierKantGewichtRechner(double zBreite, double zLänge, double zHöhe, double zDichte)
-        {
-            double eGewicht;
-            return eGewicht = zBreite * zLänge * zHöhe * zDichte;
-        }
         // Oberfläche berechnen lassen Vierkantprofil
         static double VierKantOberflächenRechner(double zBreite, double zLänge, double zHöhe)
         {
