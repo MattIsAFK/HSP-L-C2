@@ -8,7 +8,7 @@ namespace Profil_Rechner_Console.Geometrien
 {
     class Kreis:Geometrie
     {
-        protected double zRadius;
+        private double zRadius;
 
         public Kreis():base()
         {
