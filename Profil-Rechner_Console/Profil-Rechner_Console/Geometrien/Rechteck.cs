@@ -35,8 +35,8 @@ namespace Profil_Rechner_Console
         /// <param name="pLaenge">Länge des Profils</param>
         public Rechteck(double pBreite, double pHoehe, double pLaenge) : base(pLaenge)
         {
-            this.setBreite(pBreite);
-            this.setHoehe(pHoehe);
+            this.SetBreite(pBreite);
+            this.SetHoehe(pHoehe);
         }
 
 
@@ -46,16 +46,20 @@ namespace Profil_Rechner_Console
         /// <returns>Flächeninhalt</returns>
         public override double GetFlaecheninhalt()
         {
-            return getHoehe() * getBreite();
+            return GetHoehe() * GetBreite();
         }
 
         /// <summary>
-        /// 
+        /// WIP 
+        /// Gibt einen Wert für ein axiales Flächenmoment zweiten Grades aus.
+        /// Ergo fehlen noch drei weitere, Rückgabe über double nicht sinnvoll
         /// </summary>
         /// <returns>Flächenträgheit des Rechteckprofils</returns>
         public override double GetFlachenTraegheit()
         {
-            throw new NotImplementedException();
+            double eFlaechenTraegheit_Iy = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
+            // throw new NotImplementedException();
+            return eFlaechenTraegheit_Iy;
         }
 
         /// <summary>
@@ -65,15 +69,51 @@ namespace Profil_Rechner_Console
         /// <returns>Volumen</returns>
         public override double GetVolumen()
         {
-            double eVolumen = getBreite() * getLaenge() * getHoehe();
+            double eVolumen = GetBreite() * GetLaenge() * GetHoehe();
             return eVolumen;
         }
+
+        /// <summary>
+        /// Berechnet aus den vorhandenen Feldwerten sowie der übergebenen Dichte das Gewicht des Profils.
+        /// </summary>
+        /// <param name="pDichte">Dichte des Profils</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns>Gewicht des Profils</returns>
+        public double GetGewicht(double pDichte)
+        {
+            double eGewicht = -1;
+
+            if (pDichte >= 0) eGewicht = GetVolumen() * pDichte;
+            else { throw new ArgumentOutOfRangeException("Dichte muss einen positiven Wert annehmen"); }
+
+            return eGewicht;
+        }
+
+        /// <summary>
+        /// Berechnet die Oberfläche des Profils aus den gegebenen, globalen, Feldwerten.
+        /// </summary>
+        /// <returns>Oberfläche des Profils</returns>
+        public double GetOberflaeche()
+        {
+            double eOberflaeche = 0;
+
+            eOberflaeche += 2 * GetFlaecheninhalt();
+            eOberflaeche += 2 * GetBreite() * GetLaenge();
+            eOberflaeche += 2 * GetHoehe() * GetLaenge();
+
+            return eOberflaeche;
+        }
+
+
+
+        /////////////////////////////////////////////////////////////////////////////
+        /// GET and SET
 
         /// <summary>
         /// Getter für das Feld Breite des Rechtecks.
         /// </summary>
         /// <returns>Breite des Rechtecks</returns>
-        public double getBreite()
+        public double GetBreite()
         {
             return zBreite;
         }
@@ -84,7 +124,7 @@ namespace Profil_Rechner_Console
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <param name="pBreite">Breite des Rechtecks</param>
-        public void setBreite(double pBreite)
+        public void SetBreite(double pBreite)
         {
             if (pBreite >= 0) zBreite = pBreite;
             else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
@@ -95,7 +135,7 @@ namespace Profil_Rechner_Console
         /// Getter der Höhe des Rechtecks.
         /// </summary>
         /// <returns>Höhe des Rechtecks</returns>
-        public double getHoehe()
+        public double GetHoehe()
         {
             return zHoehe;
         }
@@ -106,7 +146,7 @@ namespace Profil_Rechner_Console
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <param name="pHoehe">Höhe des Rechtecks</param>
-        public void setHoehe(double pHoehe)
+        public void SetHoehe(double pHoehe)
         {
             if (pHoehe >= 0) zHoehe = pHoehe;
             else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
