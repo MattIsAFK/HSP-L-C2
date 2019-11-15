@@ -31,7 +31,6 @@ namespace Profil_Rechner_Console
                             break;
                         default:
                             throw new ArgumentOutOfRangeException("Eingabe muss '1' oder '2' sein!");
-                            break;
                     }
                     checkmate = false;
                 }
@@ -52,7 +51,7 @@ namespace Profil_Rechner_Console
                 Console.Write("Breite:");
                 try
                 {
-                    myRechteck.setBreite(Convert.ToDouble(Console.ReadLine()));
+                    myRechteck.SetBreite(Convert.ToDouble(Console.ReadLine()));
                     checkmate = false;
                 }
                 catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
@@ -64,7 +63,7 @@ namespace Profil_Rechner_Console
                 Console.Write("Länge:");
                 try
                 {   
-                    myRechteck.setLaenge(Convert.ToDouble(Console.ReadLine()));
+                    myRechteck.SetLaenge(Convert.ToDouble(Console.ReadLine()));
                     checkmate = false;
                 }
                 catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
@@ -75,7 +74,7 @@ namespace Profil_Rechner_Console
                 Console.Write("Höhe:");
                 try
                 {
-                    myRechteck.setHoehe(Convert.ToDouble(Console.ReadLine()));
+                    myRechteck.SetHoehe(Convert.ToDouble(Console.ReadLine()));
                     checkmate = false;
                 }
                 catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
@@ -104,19 +103,6 @@ namespace Profil_Rechner_Console
         ///////////////////////////////////////////////////////////////////////////////////////////
         //// Methoden
 
-
-
-        
-            
-         /* Fläche errechnen lassen Vierkantprofil
-       
-        static double VierKantFlächenRechner(double zBreite, double zLänge)
-        {
-            double eFläche;
-            return eFläche = zBreite * zLänge;
-        }
-        */
-
         //TODO WiP
         static void Kreis()
         {
@@ -144,19 +130,11 @@ namespace Profil_Rechner_Console
         Console.ReadLine();
     }
 
-
-        // Oberfläche berechnen lassen Vierkantprofil
-        static double VierKantOberflächenRechner(double zBreite, double zLänge, double zHöhe)
-        {
-            double eOber;
-            return eOber = 2 * (zBreite * zLänge + zLänge * zHöhe + zBreite * zHöhe);
-        }
         // Volumen berechnen Kreisprofil
         static double KreisVolumenRechner(double kRadius, double kLänge)
         {
             double eVolumen;
-            double Pi = 3.141592;
-            return eVolumen = Pi * (kRadius * kRadius) * kLänge;
+            return eVolumen = Math.PI * (kRadius * kRadius) * kLänge;
 
         }
         // Oberfläche berechnen Kreiprofil
