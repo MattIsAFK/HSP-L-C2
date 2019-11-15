@@ -70,6 +70,24 @@ namespace Profil_Rechner_Console
         }
 
         /// <summary>
+        /// Berechnet aus den vorhandenen Feldwerten sowie der übergebenen Dichte das Gewicht des Profils.
+        /// </summary>
+        /// <param name="pDichte">Dichte des Profils</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <returns>Gewicht des Profils</returns>
+        public double getGewicht(double pDichte)
+        {
+            double eGewicht = -1;
+
+            if (pDichte >= 0) eGewicht = GetVolumen() * pDichte;
+            else { throw new ArgumentOutOfRangeException("Dichte muss einen positiven Wert annehmen"); }
+
+            return eGewicht;
+        }
+
+
+
+        /// <summary>
         /// Getter für das Feld Breite des Rechtecks.
         /// </summary>
         /// <returns>Breite des Rechtecks</returns>
