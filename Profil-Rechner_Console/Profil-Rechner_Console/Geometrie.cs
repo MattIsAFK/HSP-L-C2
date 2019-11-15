@@ -11,7 +11,7 @@ namespace Profil_Rechner_Console
         /// <summary>
         /// Länge der Profilgeometrie
         /// </summary>
-        protected double zLaenge;
+        private double zLaenge;
         /// <summary>
         /// Erzeugt eine neue Geometrie der Länge 0.
         /// Kann nur von "Kindern" aufgerufen werden da Klasse abstract.
