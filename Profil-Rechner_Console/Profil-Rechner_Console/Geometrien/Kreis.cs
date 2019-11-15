@@ -10,9 +10,13 @@ namespace Profil_Rechner_Console.Geometrien
     {
         private double zRadius;
 
-        public Kreis():base()
+        public Kreis() : this(0, 0) { }
+
+        public Kreis(double pRadius):this(pRadius,0) { }
+
+        public Kreis(double pRadius, double pLaenge):base(pLaenge)
         {
-            zRadius = 0;
+            setRadius(pRadius);
         }
 
         public override double GetFlaecheninhalt()
@@ -26,6 +30,16 @@ namespace Profil_Rechner_Console.Geometrien
         }
 
         public override double GetVolumen()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double getRadius()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setRadius(double pRadius)
         {
             throw new NotImplementedException();
         }
