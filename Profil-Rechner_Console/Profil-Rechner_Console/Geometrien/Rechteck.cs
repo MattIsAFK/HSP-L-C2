@@ -50,12 +50,16 @@ namespace Profil_Rechner_Console
         }
 
         /// <summary>
-        /// 
+        /// WIP 
+        /// Gibt einen Wert für ein axiales Flächenmoment zweiten Grades aus.
+        /// Ergo fehlen noch drei weitere, Rückgabe über double nicht sinnvoll
         /// </summary>
         /// <returns>Flächenträgheit des Rechteckprofils</returns>
         public override double GetFlachenTraegheit()
         {
-            throw new NotImplementedException();
+            double eFlaechenTraegheit_Iy = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
+            // throw new NotImplementedException();
+            return eFlaechenTraegheit_Iy;
         }
 
         /// <summary>
@@ -99,6 +103,11 @@ namespace Profil_Rechner_Console
 
             return eOberflaeche;
         }
+
+
+
+        /////////////////////////////////////////////////////////////////////////////
+        /// GET and SET
 
         /// <summary>
         /// Getter für das Feld Breite des Rechtecks.
