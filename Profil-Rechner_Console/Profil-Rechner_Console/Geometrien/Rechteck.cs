@@ -9,8 +9,8 @@ namespace Profil_Rechner_Console
     class Rechteck : Geometrie
     {
         /// Variabeln für Vierkantprofil
-        protected double zBreite;
-        protected double zHoehe;
+        private double zBreite;
+        private double zHoehe;
 
 
 
@@ -46,7 +46,7 @@ namespace Profil_Rechner_Console
         /// <returns>Flächeninhalt</returns>
         public override double GetFlaecheninhalt()
         {
-            return zLaenge * zBreite;
+            return getHoehe() * getBreite();
         }
 
         /// <summary>
@@ -65,10 +65,14 @@ namespace Profil_Rechner_Console
         /// <returns>Volumen</returns>
         public override double GetVolumen()
         {
-            double eVolumen = zBreite * zLaenge * zHoehe;
+            double eVolumen = getBreite() * getLaenge() * getHoehe();
             return eVolumen;
         }
 
+        /// <summary>
+        /// Getter für das Feld Breite des Rechtecks.
+        /// </summary>
+        /// <returns>Breite des Rechtecks</returns>
         public double getBreite()
         {
             return zBreite;
