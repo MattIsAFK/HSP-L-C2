@@ -85,7 +85,20 @@ namespace Profil_Rechner_Console
             return eGewicht;
         }
 
+        /// <summary>
+        /// Berechnet die Oberfläche des Profils aus den gegebenen, globalen, Feldwerten.
+        /// </summary>
+        /// <returns>Oberfläche des Profils</returns>
+        public double GetOberflaeche()
+        {
+            double eOberflaeche = 0;
 
+            eOberflaeche += 2 * GetFlaecheninhalt();
+            eOberflaeche += 2 * getBreite() * getLaenge();
+            eOberflaeche += 2 * getHoehe() * getLaenge();
+
+            return eOberflaeche;
+        }
 
         /// <summary>
         /// Getter für das Feld Breite des Rechtecks.
