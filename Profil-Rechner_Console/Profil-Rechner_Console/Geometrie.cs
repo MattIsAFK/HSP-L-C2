@@ -25,7 +25,7 @@ namespace Profil_Rechner_Console
         /// <param name="pLaenge">Länge des zu erzeugenden Profils</param>
         public Geometrie(double pLaenge)
         {
-            this.setLaenge(pLaenge);
+            this.SetLaenge(pLaenge);
         }
 
         public abstract double GetFlaecheninhalt();
@@ -38,16 +38,16 @@ namespace Profil_Rechner_Console
         /// Getter der Profillänge
         /// </summary>
         /// <returns>Profillänge</returns>
-        public double getLaenge()
+        public double GetLaenge()
         {
             return zLaenge;
         }
 
         /// <summary>
-        /// Überprüft den Wert für die Länge daruf, dass dieser nicht negativ wird und setzt die Objektvariable entsprechend.
+        /// Überprüft den Wert für die Länge daruf, dass dieser nicht negativ wird und Setzt die Objektvariable entsprechend.
         /// </summary>
         /// <param name="pLaenge">Länge der Profilgeometrie</param>
-        public void setLaenge(double pLaenge)
+        public void SetLaenge(double pLaenge)
         {
             if (pLaenge >= 0) zLaenge = pLaenge;
             else throw new ArgumentOutOfRangeException("Länge muss einen positiven Wert oder 0 annehmen");
