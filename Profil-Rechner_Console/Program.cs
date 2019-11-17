@@ -1,0 +1,255 @@
+﻿using Profil_Rechner_Console.Geometrien;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Profil_Rechner_Console
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Auswahl Variable
+            int auswahlProfil = 0;
+            Boolean checkmate = true;
+
+            Console.WriteLine("Bitte wählen Sie einen Profiltyp aus. Tippen Sie '1' für Rechteck  '2' für Kreis oder '3' für Sechseck");
+            do
+            {
+                try
+                {
+                    auswahlProfil = Convert.ToInt32(Console.ReadLine());
+
+                    switch (auswahlProfil)
+                    {
+                        case 1:
+                            Rechteck();
+                            break;
+                        case 2:
+                            Kreis();
+                            break;
+                        case 3:
+                            Sechseck();
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("Eingabe muss '1' , '2' oder '3' sein!");
+                            
+                    }
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Numerische Eingabe erforderlich"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            }while (checkmate);
+        }
+
+        static void Rechteck()
+        {
+
+            Rechteck myRechteck = new Rechteck();
+            Boolean checkmate = true;
+            // Eingabe Vierkantprofil
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            do
+            {
+                Console.Write("Breite:");
+                try
+                {
+                    myRechteck.setBreite(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
+                Console.Write("Länge:");
+                try
+                {   
+                    myRechteck.SetLaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
+                Console.Write("Höhe:");
+                try
+                {
+                    myRechteck.setHoehe(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                 
+            } while (checkmate);
+            
+            Console.ReadLine();       
+
+          
+  
+
+            // Ausgabe Vierkantprofil
+
+            Console.WriteLine("Ergebnisse");
+
+            try { Console.WriteLine("Fläche:" + myRechteck.GetFlaecheninhalt() + " m²"); } catch (Exception) {}
+            try { Console.WriteLine("Volumen:" + myRechteck.GetVolumen() + " m³"); } catch (Exception) { }
+            //Console.WriteLine("Oberfläche:" + VierKantOberflächenRechner(zBreite, zLänge, zHöhe) + " m²");
+            //Console.WriteLine("Gewicht:" + VierKantGewichtRechner(zBreite, zLänge, zHöhe, 7900) + " kg");
+            Console.ReadLine();
+
+
+        }
+ 
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //// Methoden
+
+
+
+        
+            
+         /* Fläche errechnen lassen Vierkantprofil
+       
+        static double VierKantFlächenRechner(double zBreite, double zLänge)
+        {
+            double eFläche;
+            return eFläche = zBreite * zLänge;
+        }
+        */
+
+        //TODO WiP
+        static void Kreis()
+        {
+        double kRadius;
+        double kLänge;
+        /// Eingabe Kreisprofil
+        /// 
+        Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Kreisprofil ein.");
+        Console.Write("Radius:");
+        kRadius = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Länge:");
+        kLänge = Convert.ToDouble(Console.ReadLine());
+        Console.ReadLine();
+
+        ///Ausgabe Kreisprofil
+
+        Console.WriteLine("Ergebnisse");
+        Console.ReadLine();
+
+        Console.WriteLine("Volumen:" + KreisVolumenRechner(kRadius, kLänge) + " m³");
+        Console.WriteLine("Oberfläche:" + KreisOberflächenRechner(kRadius, kLänge) + " m²");
+        Console.WriteLine("Mantelfläche:" + KreisMantelflächeRechner(kRadius, kLänge) + " m²");
+        Console.WriteLine("Grundfläche:" + KreisGrundflächeRechner(kRadius) + " m²");
+        Console.WriteLine("Gewicht:" + KreisGewichtRechner(kRadius, kLänge) + " kg");
+        Console.ReadLine();
+    }
+
+
+        /* volumen berechnen Vierkantprofil
+        static double VierKantVolumenRechner(double zBreite, double zLänge, double zHöhe)
+        {
+            double eVolumen;
+            return eVolumen = zBreite * zLänge * zHöhe;
+        }
+        */
+
+            static void Sechseck()
+        {
+
+            Sechseck mySechseck = new Sechseck();
+            Boolean checkmate = true;
+            // Eingabe Vierkantprofil
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Sechseckprofil ein.");
+            do
+            {
+                Console.Write("Seitenlaenge:");
+                try
+                {
+                    mySechseck.setSeitenlaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
+                Console.Write("Länge:");
+                try
+                {   
+                    mySechseck.SetLaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+            } while (checkmate);
+            checkmate = true;
+            
+           
+            
+            Console.ReadLine();       
+
+            // Ausgabe Sechseckprofil
+
+            Console.WriteLine("Ergebnisse");
+
+            try { Console.WriteLine("Fläche:" + mySechseck.GetFlaecheninhalt() + " m²"); } catch (Exception) {}
+            try { Console.WriteLine("Volumen:" + mySechseck.GetVolumen() + " m³"); } catch (Exception) { }
+          
+            Console.ReadLine();
+
+
+        }
+        //Gewicht berechnen Vierkantprofil
+        static double VierKantGewichtRechner(double zBreite, double zLänge, double zHöhe, double zDichte)
+        {
+            double eGewicht;
+            return eGewicht = zBreite * zLänge * zHöhe * zDichte;
+        }
+        // Oberfläche berechnen lassen Vierkantprofil
+        static double VierKantOberflächenRechner(double zBreite, double zLänge, double zHöhe)
+        {
+            double eOber;
+            return eOber = 2 * (zBreite * zLänge + zLänge * zHöhe + zBreite * zHöhe);
+        }
+        // Volumen berechnen Kreisprofil
+        static double KreisVolumenRechner(double kRadius, double kLänge)
+        {
+            double eVolumen;
+            double Pi = 3.141592;
+            return eVolumen = Pi * (kRadius * kRadius) * kLänge;
+
+        }
+        // Oberfläche berechnen Kreiprofil
+        static double KreisOberflächenRechner(double kRadius, double kLänge)
+        {
+            double eOber;
+            double Pi = 3.141592;
+            return eOber = 2 * Pi * kRadius * (kRadius + kLänge);
+        }
+        // Mantelfläche berechnen Kreisprofil
+        static double KreisMantelflächeRechner(double kRadius, double kLänge)
+        {
+            double eMantel;
+            double Pi = 3.141592;
+            return eMantel = 2 * Pi * kRadius * kLänge;
+        }
+        // Grundfläche berechnen Kreisprofil
+        static double KreisGrundflächeRechner(double kRadius )
+        {
+            double eGrund;
+            double Pi = 3.141592;
+            return eGrund =  Pi * kRadius * kRadius;
+        }
+        //Gewicht berechnen Kreisprofil
+        static double KreisGewichtRechner(double kRadius, double kLänge)
+        {
+            double eGewicht;
+            double Pi = 3.141592;
+            return eGewicht = (Pi * (kRadius * kRadius) * kLänge) *7900;
+        }
+    }
+}
