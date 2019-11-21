@@ -4,15 +4,3 @@ D:\Programmierung\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil
 D:\Programmierung\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.pdb
 D:\Programmierung\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.exe
 D:\Programmierung\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.pdb
-C:\Users\ja2905\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.exe.config
-C:\Users\ja2905\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.exe
-C:\Users\ja2905\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.pdb
-C:\Users\ja2905\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.csprojResolveAssemblyReference.cache
-C:\Users\ja2905\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.exe
-C:\Users\ja2905\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.pdb
-C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.exe.config
-C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.exe
-C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\bin\Debug\Profil-Rechner_Console.pdb
-C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.csprojAssemblyReference.cache
-C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.exe
-C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.pdb
