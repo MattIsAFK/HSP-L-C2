@@ -30,7 +30,10 @@ namespace Profil_Rechner_Console.Geometrien
 
         public override double GetFlaecheninhalt()
         {
-            throw new NotImplementedException();
+
+            double FlaechenTraegheit = Math.Pow(2 * GetRadius(), 4) * Math.PI / 64;
+            return FlaechenTraegheit;
+
         }
 
         public override double GetFlachenTraegheit()
