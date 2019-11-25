@@ -16,3 +16,5 @@ C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Con
 C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.csprojAssemblyReference.cache
 C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.exe
 C:\Users\Jan\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.pdb
+C:\Users\al2628\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.exe
+C:\Users\al2628\Documents\GitHub\HSP-L-C2\Profil-Rechner_Console\Profil-Rechner_Console\obj\Debug\Profil-Rechner_Console.pdb
