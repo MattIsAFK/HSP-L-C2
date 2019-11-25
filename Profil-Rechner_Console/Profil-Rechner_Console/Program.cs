@@ -131,13 +131,73 @@ namespace Profil_Rechner_Console
         }
  
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        //// Methoden
-
-        //TODO WiP
+        /// <summary>
+        /// Kreisprofil
+        /// </summary>
+        
         static void Kreis()
         {
-        double kRadius;
+            Kreis myKreis = new Kreis;
+            bool checkmate = true;
+
+         ///Eingabe der Parameter des Kreisprofils
+         ///
+
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            do
+            {
+                Console.Write("Radius:");
+                try
+                {
+                    myKreis.SetRadius(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            } while (checkmate);
+
+            checkmate = true;
+            do
+            {
+                Console.Write("Laenge:");
+                try
+                {
+                    myKreis.SetLaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungueltige Eingabe. Nur numerische Zahlenwerte!"); }
+            } while (checkmate);
+           
+            Console.ReadLine();
+
+
+            /// Ausgabe der Parameter des Kreisprofils
+            /// 
+
+            try
+            {
+                Console.WriteLine("Flaeche:" + myKreis.GetFlaecheninhalt() + " m²");
+
+            }
+            catch (Exception) { }
+
+                
+            try
+            {
+                Console.WriteLine("Flaechentraegheit:" + myKreis.GetFlaechenTraegheit() + "m^4");
+            }
+            catch (Exception) { }
+
+            try
+            {
+                Console.WriteLine("Volumen:" + myKreis.GetVolumen() + "m³");
+            }
+            catch (Exception) { }
+
+            ///
+            /// Weitere ausgaben Folgen 
+            ///
+            double kRadius;
         double kLänge;
         /// Eingabe Kreisprofil
         /// 
