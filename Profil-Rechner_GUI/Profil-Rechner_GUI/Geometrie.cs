@@ -30,7 +30,7 @@ namespace Profil_Rechner_GUI
 
         public abstract double GetFlaecheninhalt();
 
-        public abstract double GetFlaechenTraegheit();
+        public abstract double[] GetFlaechenTraegheit();
 
         public abstract double GetVolumen();
 

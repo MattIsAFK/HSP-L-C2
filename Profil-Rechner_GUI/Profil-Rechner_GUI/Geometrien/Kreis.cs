@@ -46,9 +46,10 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Berechnet die Flaechentraegheit des Kreisprofils mit den global verfügbaren Parametern der Klasse.
         /// </summary>
         /// <return>Flaechentraegheit des Kreisprofils</return>
-        public override double GetFlaechenTraegheit()
+        public override double[] GetFlaechenTraegheit()
         {
-            double FlaechenTraegheit = Math.Pow(2 * GetRadius(), 4) * Math.PI / 64;
+            double[] FlaechenTraegheit = new double[4];
+            FlaechenTraegheit [0] =  Math.Pow(2 * GetRadius(), 4) * Math.PI / 64;
             return FlaechenTraegheit;
         }
         /// <summary>
