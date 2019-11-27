@@ -29,7 +29,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <param name="pLaenge">Laenge der Profilgeometrie</param>
         public Kreis(double pRadius, double pLaenge) : base(pLaenge)
         {
-            setRadius(pRadius);
+            SetRadius(pRadius);
         }
 
         /// <summary>
