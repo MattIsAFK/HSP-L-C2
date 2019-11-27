@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Profil_Rechner_Console.Geometrien
 {
-    class Kreis:Geometrie
+    class Kreis : Geometrie
     {
         private double zRadius;
         private double zLaenge;
