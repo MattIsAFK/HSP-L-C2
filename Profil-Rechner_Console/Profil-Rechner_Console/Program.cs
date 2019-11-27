@@ -137,7 +137,7 @@ namespace Profil_Rechner_Console
         
         static void Kreis()
         {
-            Kreis myKreis = new Kreis;
+            Kreis myKreis = new Kreis();
             bool checkmate = true;
 
          ///Eingabe der Parameter des Kreisprofils
@@ -194,67 +194,20 @@ namespace Profil_Rechner_Console
             }
             catch (Exception) { }
 
-            ///
-            /// Weitere ausgaben Folgen 
-            ///
-            double kRadius;
-        double kLänge;
-        /// Eingabe Kreisprofil
-        /// 
-        Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Kreisprofil ein.");
-        Console.Write("Radius:");
-        kRadius = Convert.ToDouble(Console.ReadLine());
-        Console.Write("Länge:");
-        kLänge = Convert.ToDouble(Console.ReadLine());
-        Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Oberflaeche:" + myKreis.GetOberflaech() + "m²");
+            }
+            catch (Exception) { }
 
-        ///Ausgabe Kreisprofil
+            try
+            {
+                Console.WriteLine("Mantelflaeche:" + myKreis.GetMantelflaeche() + "m²");
+            }
+            catch (Exception) { }
 
-        Console.WriteLine("Ergebnisse");
-        Console.ReadLine();
-
-        Console.WriteLine("Volumen:" + KreisVolumenRechner(kRadius, kLänge) + " m³");
-        Console.WriteLine("Oberfläche:" + KreisOberflächenRechner(kRadius, kLänge) + " m²");
-        Console.WriteLine("Mantelfläche:" + KreisMantelflächeRechner(kRadius, kLänge) + " m²");
-        Console.WriteLine("Grundfläche:" + KreisGrundflächeRechner(kRadius) + " m²");
-        Console.WriteLine("Gewicht:" + KreisGewichtRechner(kRadius, kLänge) + " kg");
-        Console.ReadLine();
-    }
-
-        // Volumen berechnen Kreisprofil
-        static double KreisVolumenRechner(double kRadius, double kLänge)
-        {
-            double eVolumen;
-            return eVolumen = Math.PI * (kRadius * kRadius) * kLänge;
-
-        }
-        // Oberfläche berechnen Kreiprofil
-        static double KreisOberflächenRechner(double kRadius, double kLänge)
-        {
-            double eOber;
-            double Pi = 3.141592;
-            return eOber = 2 * Pi * kRadius * (kRadius + kLänge);
-        }
-        // Mantelfläche berechnen Kreisprofil
-        static double KreisMantelflächeRechner(double kRadius, double kLänge)
-        {
-            double eMantel;
-            double Pi = 3.141592;
-            return eMantel = 2 * Pi * kRadius * kLänge;
-        }
-        // Grundfläche berechnen Kreisprofil
-        static double KreisGrundflächeRechner(double kRadius )
-        {
-            double eGrund;
-            double Pi = 3.141592;
-            return eGrund =  Pi * kRadius * kRadius;
-        }
-        //Gewicht berechnen Kreisprofil
-        static double KreisGewichtRechner(double kRadius, double kLänge)
-        {
-            double eGewicht;
-            double Pi = 3.141592;
-            return eGewicht = (Pi * (kRadius * kRadius) * kLänge) *7900;
+          
+       
         }
     }
 }
