@@ -146,7 +146,7 @@ namespace Profil_Rechner_Console
          ///Eingabe der Parameter des Kreisprofils
          ///
 
-            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Rechteckprofil ein.");
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Kreisprofil ein.");
             do
             {
                 Console.Write("Radius:");
@@ -212,6 +212,91 @@ namespace Profil_Rechner_Console
           
        
         }
+
+        ///<summary>
+        /// Sechseckprofil
+        /// </summary>
+
+        static void Sechseck()
+        {
+            Sechseck mySechseck = new Sechseck();
+            bool checkmate = true;
+
+            ///Eingabe der Parameter des Sechseckprofils
+            ///
+
+            Console.WriteLine("Bitte geben Sie die Werte in Meter für Ihr Sechseckprofil ein.");
+            do
+            {
+                Console.Write("Breite:");
+                try
+                {
+                    mySechseck.SetBreite(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+                catch (ArgumentOutOfRangeException e) { Console.WriteLine(e.Message); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
+                Console.Write("Länge:");
+                try
+                {
+                    mySechseck.SetLaenge(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+            } while (checkmate);
+            checkmate = true;
+            do
+            {
+                Console.Write("Höhe:");
+                try
+                {
+                    mySechseck.SetHoehe(Convert.ToDouble(Console.ReadLine()));
+                    checkmate = false;
+                }
+                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
+
+            } while (checkmate);
+
+            Console.ReadLine();
+
+
+            /// Ausgabe der Parameter des Sechseckprofils
+            /// 
+
+            try
+            {
+                Console.WriteLine("Flaeche:" + mySechseck.GetFlaecheninhalt() + " m²");
+
+            }
+            catch (Exception) { }
+
+
+            try
+            {
+                Console.WriteLine("Flaechentraegheit:" + mySechseck.GetFlaechenTraegheit() + "m^4");
+            }
+            catch (Exception) { }
+
+            try
+            {
+                Console.WriteLine("Volumen:" + mySechseck.GetVolumen() + "m³");
+            }
+            catch (Exception) { }
+
+            try
+            {
+                Console.WriteLine("Oberflaeche:" + mySechseck.GetOberflaeche() + "m²");
+            }
+            catch (Exception) { }
+
+
+        }
+
+
     }
 
 
