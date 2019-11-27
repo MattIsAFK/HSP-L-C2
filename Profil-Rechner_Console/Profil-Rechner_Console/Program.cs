@@ -196,7 +196,7 @@ namespace Profil_Rechner_Console
 
             try
             {
-                Console.WriteLine("Oberflaeche:" + myKreis.GetOberflaech() + "m²");
+                Console.WriteLine("Oberflaeche:" + myKreis.GetOberflaeche() + "m²");
             }
             catch (Exception) { }
 
