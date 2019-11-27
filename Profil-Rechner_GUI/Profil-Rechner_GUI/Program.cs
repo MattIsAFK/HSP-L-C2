@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Profil_Rechner_GUI.Geometrien;
 
 namespace Profil_Rechner_Console
 {
