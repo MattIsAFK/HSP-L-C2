@@ -8,6 +8,7 @@ namespace Profil_Rechner_Console
 {
     class Program
     {
+        /*
         static void Main(string[] args)
         {
             // Auswahl Variable
@@ -69,6 +70,7 @@ namespace Profil_Rechner_Console
                 } while (checkmate);
             } while (masterCheck);
         }
+        */
 
         static void Rechteck()
         {
@@ -210,4 +212,6 @@ namespace Profil_Rechner_Console
        
         }
     }
+
+
 }

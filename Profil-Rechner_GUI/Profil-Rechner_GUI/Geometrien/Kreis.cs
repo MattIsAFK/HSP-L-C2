@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Profil_Rechner_Console
+
+namespace Profil_Rechner_GUI.Geometrien
+
 {
     class Kreis : Geometrie
     {
@@ -19,12 +21,13 @@ namespace Profil_Rechner_Console
         /// </summary>
         /// <param name="pRadius">Radius des Kreisprofils</param>
         public Kreis(double pRadius):this(pRadius,0) { }
+
         /// <summary>
         /// Erzeugt einen neuen Kreis mit den übergebenen Parametern.
         /// </summary>
         /// <param name="pRadius">Radius des Kreises</param>
         /// <param name="pLaenge">Laenge der Profilgeometrie</param>
-        public Kreis(double pRadius, double pLaenge):base(pLaenge)
+        public Kreis(double pRadius, double pLaenge) : base(pLaenge)
         {
             setRadius(pRadius);
         }
