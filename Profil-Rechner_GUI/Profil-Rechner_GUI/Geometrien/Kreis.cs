@@ -101,7 +101,6 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <param name="pRadius">Radius des Kreisprofils</param>
         /// 
-
         public void SetRadius(double pRadius)
         {
             if (pRadius >= 0) zRadius = pRadius;
