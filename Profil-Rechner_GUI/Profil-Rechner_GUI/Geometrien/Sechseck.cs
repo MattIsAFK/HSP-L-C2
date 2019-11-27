@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Profil_Rechner_Console.Geometrien
+namespace Profil_Rechner_GUI.Geometrien
 {
     class Sechseck:Geometrie 
     {
@@ -18,7 +18,7 @@ namespace Profil_Rechner_Console.Geometrien
             throw new NotImplementedException();
         }
 
-        public override double GetFlachenTraegheit()
+        public override double GetFlaechenTraegheit()
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Profil_Rechner_Console
+namespace Profil_Rechner_GUI
 {
     abstract class Geometrie
     {
@@ -30,7 +30,7 @@ namespace Profil_Rechner_Console
 
         public abstract double GetFlaecheninhalt();
 
-        public abstract double GetFlachenTraegheit();
+        public abstract double GetFlaechenTraegheit();
 
         public abstract double GetVolumen();
 

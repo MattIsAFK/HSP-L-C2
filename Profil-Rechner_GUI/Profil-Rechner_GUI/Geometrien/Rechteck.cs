@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Profil_Rechner_Console
+namespace Profil_Rechner_GUI.Geometrien
 {
     class Rechteck : Geometrie
     {
@@ -55,7 +55,7 @@ namespace Profil_Rechner_Console
         /// Es existiren vier Momente; Rückgabe über double nicht sinnvoll
         /// </summary>
         /// <returns>Flächenträgheit des Rechteckprofils</returns>
-        public override double GetFlachenTraegheit()
+        public override double GetFlaechenTraegheit()
         {
             ///Lösungsvorschlag für die Problematik der multiplen Werte
             ///Methodenname allerdings irreführend
