@@ -55,11 +55,14 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Ergo fehlen noch drei weitere, Rückgabe über double nicht sinnvoll
         /// </summary>
         /// <returns>Flächenträgheit des Rechteckprofils</returns>
-        public override double GetFlaechenTraegheit()
+        public override double[] GetFlaechenTraegheit()
         {
-            double eFlaechenTraegheit_Iy = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
-            // throw new NotImplementedException();
-            return eFlaechenTraegheit_Iy;
+            double[] eFlaechenTraegheit = new double[4]; 
+            eFlaechenTraegheit[0] = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
+            eFlaechenTraegheit[1] = ((GetHoehe() * Math.Pow(GetBreite(), 3)) / 12);
+            eFlaechenTraegheit[2] = ((GetBreite() * Math.Pow(GetHoehe(), 2)) / 6);
+            eFlaechenTraegheit[3] = ((GetHoehe() * Math.Pow(GetBreite(), 2)) / 6);
+            return eFlaechenTraegheit;
         }
 
         /// <summary>
