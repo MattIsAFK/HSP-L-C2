@@ -18,7 +18,7 @@ namespace Profil_Rechner_GUI.Geometrien
             throw new NotImplementedException();
         }
 
-        public override double GetFlachenTraegheit()
+        public override double GetFlaechenTraegheit()
         {
             throw new NotImplementedException();
         }
