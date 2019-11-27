@@ -20,7 +20,7 @@ namespace Profil_Rechner_GUI.Geometrien
         public Rechteck() : this(0, 0, 0) { }
 
         /// <summary>
-        /// Erzeugt ein neues Rechteck mit den übergeben Maßen.
+        /// Erzeugt ein neues Rechteck mit den übergebenen Maßen.
         /// Die Länge des Profils wird 0 gesetzt.
         /// </summary>
         /// <param name="pBreite"></param>
@@ -50,23 +50,21 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// WIP 
-        /// 
-        /// Es existiren vier Momente; Rückgabe über double nicht sinnvoll
+        /// Zusammenfassung der einzelnen Methoden für Ausgabe in Array 
         /// </summary>
-        /// <returns>Flächenträgheit des Rechteckprofils</returns>
-        public override double GetFlaechenTraegheit()
+        /// <returns>Array mit Flächenträgheiten des Rechteckprofils</returns>
+        public override double[] GetFlaechenTraegheit()
         {
             ///Lösungsvorschlag für die Problematik der multiplen Werte
             ///Methodenname allerdings irreführend
-            /*
+  
             double[] flaechentraegheiten = new double[4];
             flaechentraegheiten[0] = GetFlaechenTraegheit_Ix();
             flaechentraegheiten[1] = GetFlaechenTraegheit_Iy();
             flaechentraegheiten[2] = GetBiegeWiderstandsMoment_Wx();
             flaechentraegheiten[3] = GetBiegeWiderstandsMoment_Wy();
-            */
-            throw new NotImplementedException();
+
+            return flaechentraegheiten;
         }
         /// <summary>
         /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
