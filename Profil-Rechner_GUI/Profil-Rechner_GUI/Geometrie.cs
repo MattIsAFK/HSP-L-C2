@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Profil_Rechner_Console
+namespace Profil_Rechner_GUI
 {
     abstract class Geometrie
     {
