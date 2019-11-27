@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Profil_Rechner_Console.Geometrien
+namespace Profil_Rechner_Console
 {
     class Kreis : Geometrie
     {
@@ -43,7 +43,7 @@ namespace Profil_Rechner_Console.Geometrien
         /// Berechnet die Flaechentraegheit des Kreisprofils mit den global verfügbaren Parametern der Klasse.
         /// </summary>
         /// <return>Flaechentraegheit des Kreisprofils</return>
-        public override double GetFlachenTraegheit()
+        public override double GetFlaechenTraegheit()
         {
             double FlaechenTraegheit = Math.Pow(2 * GetRadius(), 4) * Math.PI / 64;
             return FlaechenTraegheit;
