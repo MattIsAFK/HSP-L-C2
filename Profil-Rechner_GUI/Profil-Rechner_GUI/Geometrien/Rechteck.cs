@@ -20,7 +20,7 @@ namespace Profil_Rechner_GUI.Geometrien
         public Rechteck() : this(0, 0, 0) { }
 
         /// <summary>
-        /// Erzeugt ein neues Rechteck mit den übergeben Maßen.
+        /// Erzeugt ein neues Rechteck mit den übergebenen Maßen.
         /// Die Länge des Profils wird 0 gesetzt.
         /// </summary>
         /// <param name="pBreite"></param>
@@ -53,6 +53,8 @@ namespace Profil_Rechner_GUI.Geometrien
         /// WIP 
         /// Gibt einen Wert für ein axiales Flächenmoment zweiten Grades aus.
         /// Ergo fehlen noch drei weitere, Rückgabe über double nicht sinnvoll
+        /// 
+        /// Jetzt geändert auf Array, Ausgabe somit sinnvoll.
         /// </summary>
         /// <returns>Flächenträgheit des Rechteckprofils</returns>
         public override double[] GetFlaechenTraegheit()
