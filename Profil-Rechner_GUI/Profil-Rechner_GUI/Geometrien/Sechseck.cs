@@ -8,7 +8,7 @@ namespace Profil_Rechner_GUI.Geometrien
 {
     class Sechseck : Geometrie 
     {
-
+        
         /// Variabeln für ein Sechseckprofil
 
         private double zBreite;
@@ -43,7 +43,7 @@ namespace Profil_Rechner_GUI.Geometrien
 
         public override double GetFlaecheninhalt()
         {
-            throw new NotImplementedException();
+            return (3 / 2) * GetBreite() * GetBreite() * Math.Sqrt(3);
         }
 
         /// <summary>
@@ -53,7 +53,15 @@ namespace Profil_Rechner_GUI.Geometrien
 
         public override double[] GetFlaechenTraegheit()
         {
-            throw new NotImplementedException();
+            double[] eFlaechenTraegheit = new double[3];
+
+          
+            eFlaechenTraegheit[0] = ((5 / 16) * Math.Sqrt(3) * Math.Pow(GetBreite(), 4)); 
+            eFlaechenTraegheit[1] = ((5 / 8) * Math.Pow(GetBreite(), 3));
+            eFlaechenTraegheit[2] = ((5 / 16) * Math.Sqrt(3) * Math.Pow(GetBreite(), 3));
+
+            return eFlaechenTraegheit;
+
         }
 
         /// <summary>
@@ -62,7 +70,9 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <returns>Volumen</returns>
         public override double GetVolumen()
         {
-            throw new NotImplementedException();
+
+            return ((3 / 2) * GetBreite() * GetBreite() * Math.Sqrt(3)) * GetLaenge();
+            
         }
 
 
@@ -72,7 +82,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <returns>Oberflaeche</returns>
         public double GetOberflaeche()
         {
-            throw new NotImplementedException();
+            return 6 * GetBreite() * GetLaenge();
         }
 
 
