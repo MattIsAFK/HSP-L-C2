@@ -398,7 +398,7 @@ namespace Profil_Rechner_GUI
                         txtVol.Text = Rechnungen.fKreis(strZahl1, strZahl2).ToString("#.###");
                         break;
                     }
-                case "itmSecheck":
+                case "itmSechseck":
                     {
                         strZahl1 = txt1.Text; // R
                         strZahl2 = txtLäng.Text; // Höhe
