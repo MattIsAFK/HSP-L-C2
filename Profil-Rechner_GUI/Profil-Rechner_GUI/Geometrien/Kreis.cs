@@ -109,29 +109,5 @@ namespace Profil_Rechner_GUI.Geometrien
 
         }
 
-        /// <summary>
-        /// Getter für das Feld Laenge des Kreisprofils.
-        /// </summary>
-        /// <returns>Laenge des Kreisprofils</returns>
-        /// 
-
-        public double GetLaenge()
-        {
-            return zLaenge;
-        }
-
-        /// <summary>
-        /// Überprüft, dass der übergebene Parameter nicht negativ ist.
-        /// Im positiven Fall wird die Objektvariable entsprechend gesetzt, andernfalls eine Exception geworfen
-        /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        /// <param name="pLaenge">Laenge des Kreisprofils</param>
-        ///
-
-        public void SetLaenge(double pLaenge)
-        {
-            if (pLaenge >= 0) zLaenge = pLaenge;
-            else throw new ArgumentOutOfRangeException("Laenge muss einen positiven Wert annehmen");
-        }
     }
 }
