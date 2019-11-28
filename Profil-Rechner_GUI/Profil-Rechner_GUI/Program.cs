@@ -248,19 +248,7 @@ namespace Profil_Rechner_Console
                 }
                 catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
             } while (checkmate);
-            checkmate = true;
-            do
-            {
-                Console.Write("Höhe:");
-                try
-                {
-                    mySechseck.SetHoehe(Convert.ToDouble(Console.ReadLine()));
-                    checkmate = false;
-                }
-                catch (FormatException) { Console.WriteLine("Ungültige Eingabe. Nur numerische Zahlenwerte!"); }
-
-            } while (checkmate);
-
+            
             Console.ReadLine();
 
 
