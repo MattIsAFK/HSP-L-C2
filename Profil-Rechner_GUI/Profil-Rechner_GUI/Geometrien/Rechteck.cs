@@ -50,23 +50,60 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// WIP 
-        /// Gibt einen Wert für ein axiales Flächenmoment zweiten Grades aus.
-        /// Ergo fehlen noch drei weitere, Rückgabe über double nicht sinnvoll
-        /// 
-        /// Jetzt geändert auf Array, Ausgabe somit sinnvoll.
+        /// Zusammenfassung der einzelnen Methoden für Ausgabe in Array 
         /// </summary>
-        /// <returns>Flächenträgheit des Rechteckprofils</returns>
+        /// <returns>Array mit Flächenträgheiten des Rechteckprofils</returns>
         public override double[] GetFlaechenTraegheit()
         {
-            double[] eFlaechenTraegheit = new double[4]; 
-            eFlaechenTraegheit[0] = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
-            eFlaechenTraegheit[1] = ((GetHoehe() * Math.Pow(GetBreite(), 3)) / 12);
-            eFlaechenTraegheit[2] = ((GetBreite() * Math.Pow(GetHoehe(), 2)) / 6);
-            eFlaechenTraegheit[3] = ((GetHoehe() * Math.Pow(GetBreite(), 2)) / 6);
-            return eFlaechenTraegheit;
-        }
+            ///Lösungsvorschlag für die Problematik der multiplen Werte
+            ///Methodenname allerdings irreführend
+  
+            double[] flaechentraegheiten = new double[4];
+            flaechentraegheiten[0] = GetFlaechenTraegheit_Ix();
+            flaechentraegheiten[1] = GetFlaechenTraegheit_Iy();
+            flaechentraegheiten[2] = GetBiegeWiderstandsMoment_Wx();
+            flaechentraegheiten[3] = GetBiegeWiderstandsMoment_Wy();
 
+            return flaechentraegheiten;
+        }
+        /// <summary>
+        /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
+        /// </summary>
+        /// <returns>Flaechenträgheit I x</returns>
+        public double GetFlaechenTraegheit_Ix()
+        {
+            double eFlaechenTraegheit_Ix = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
+
+            return eFlaechenTraegheit_Ix;
+        }
+        /// <summary>
+        /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Iy zurück.
+        /// </summary>
+        /// <returns>Flaechenträgheit I y</returns>
+        public double GetFlaechenTraegheit_Iy()
+        {
+            double eFlaechenTraegheit_Iy = ((GetHoehe() * Math.Pow(GetBreite(), 3)) / 12);
+
+            return eFlaechenTraegheit_Iy;
+        }
+        /// <summary>
+        /// Berechnet das axiale Biegewiderstandsmoment Wx aus den gegebenen, globalen, Feldwerten.
+        /// </summary>
+        /// <returns>Biegewiderstandsmoment Wx</returns>
+        public double GetBiegeWiderstandsMoment_Wx()
+        {
+            double eBiegeWiderStand_Wx = ((GetBreite()*Math.Pow(GetHoehe(),2))/6);
+            return eBiegeWiderStand_Wx;
+        }
+        /// <summary>
+        /// Berechnet das axiale Biegewiderstandsmoment Wy aus den gegebenen, globalen, Feldwerten.
+        /// </summary>
+        /// <returns>Biegewiderstandsmoment Wy</returns>
+        public double GetBiegeWiderstandsMoment_Wy()
+        {
+            double eBiegeWiderStand_Wy = ((GetHoehe() * Math.Pow(GetBreite(), 2)) / 6);
+            return eBiegeWiderStand_Wy;
+        }
         /// <summary>
         /// Aus den gegeben Parametern wird das Volumen berechnet.
         /// 
@@ -86,7 +123,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <returns>Gewicht des Profils</returns>
         public double GetGewicht(double pDichte)
         {
-            double eGewicht = -1;
+            double eGewicht;
 
             if (pDichte >= 0) eGewicht = GetVolumen() * pDichte;
             else { throw new ArgumentOutOfRangeException("Dichte muss einen positiven Wert annehmen"); }

@@ -41,6 +41,7 @@ namespace Profil_Rechner_GUI.Geometrien
             this.SetLaenge(pLaenge);
         }
 
+
         /// <summary>
         /// Berechnet den Flaecheninhalt des Sechsecks mit den global verfuegbaren Parametern der Klasse.
         /// </summary>
@@ -80,9 +81,15 @@ namespace Profil_Rechner_GUI.Geometrien
             throw new NotImplementedException();
         }
 
+        public void SetBreite(double pBreite)
+        {
+            throw new NotImplementedException();
+        }
 
-
-
+        public void SetHoehe(double pHoehe)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }
