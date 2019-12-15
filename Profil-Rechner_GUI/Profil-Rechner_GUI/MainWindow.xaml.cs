@@ -25,6 +25,9 @@ namespace Profil_Rechner_GUI
             bnCatia.IsEnabled = false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void HideControls()
         {
             // Auswahl der ImageBox
@@ -90,9 +93,9 @@ namespace Profil_Rechner_GUI
                         lbZahl2.Content = "b";
 
                         // *Tooltips der Textboxen*
-                        txt1.ToolTip = "Wert für h eingeben";
-                        txt2.ToolTip = "Wert für b eingeben";
-                        txtLäng.ToolTip = "Wert für die Höhe eingeben";
+                        txt1.ToolTip = "Wert für 'h' eingeben";
+                        txt2.ToolTip = "Wert für 'b' eingeben";
+                        txtLäng.ToolTip = "Wert für die Länge eingeben";
 
                         // ***Leeren der Textboxen***
                         txt1.Clear();
@@ -132,9 +135,9 @@ namespace Profil_Rechner_GUI
                         lbZahl2.Content = "h";
 
                         // *Tooltips der Textboxen*
-                        txt1.ToolTip = "Wert für b eingeben";
-                        txt2.ToolTip = "Wert für h eingeben";
-                        txtLäng.ToolTip = "Wert für die Höhe eingeben";
+                        txt1.ToolTip = "Wert für 'b' eingeben";
+                        txt2.ToolTip = "Wert für 'h' eingeben";
+                        txtLäng.ToolTip = "Wert für die Länge eingeben";
 
                         // ***Leeren der Textboxen***
                         txt1.Clear();
@@ -181,11 +184,11 @@ namespace Profil_Rechner_GUI
                         lbZahl4.Content = "h";
 
                         // *Tooltips der Textboxen*
-                        txt1.ToolTip = "Wert für B eingeben";
-                        txt2.ToolTip = "Wert für H eingeben";
-                        txt3.ToolTip = "Wert für b eingeben";
-                        txt4.ToolTip = "Wert für h eingeben";
-                        txtLäng.ToolTip = "Wert für die Höhe eingeben";
+                        txt1.ToolTip = "Wert für 'B' eingeben";
+                        txt2.ToolTip = "Wert für 'H' eingeben";
+                        txt3.ToolTip = "Wert für 'b' eingeben";
+                        txt4.ToolTip = "Wert für 'h' eingeben";
+                        txtLäng.ToolTip = "Wert für die Länge des Profils eingeben";
 
                         // ***Leeren der Textboxen***
                         txt1.Clear();
@@ -224,8 +227,8 @@ namespace Profil_Rechner_GUI
                         lbLänge.Content = "Länge";
 
                         // *Tooltips der Textboxen*
-                        txt1.ToolTip = "Wert für R eingeben";
-                        txtLäng.ToolTip = "Wert für die Höhe eingeben";
+                        txt1.ToolTip = "Wert für 'R' eingeben";
+                        txtLäng.ToolTip = "Wert für die Länge eingeben";
 
                         // ***Leeren der Textboxen***
                         txt1.Clear();
@@ -273,11 +276,11 @@ namespace Profil_Rechner_GUI
                         lbLänge.Content = "Länge";
 
                         // *Tooltips der Textboxen*
-                        txt1.ToolTip = "Wert für B eingeben";
-                        txt2.ToolTip = "Wert für H eingeben";
-                        txt3.ToolTip = "Wert für b eingeben";
-                        txt4.ToolTip = "Wert für h eingeben";
-                        txtLäng.ToolTip = "Wert für die Höhe eingeben";
+                        txt1.ToolTip = "Wert für 'B' eingeben";
+                        txt2.ToolTip = "Wert für 'H' eingeben";
+                        txt3.ToolTip = "Wert für 'b' eingeben";
+                        txt4.ToolTip = "Wert für 'h' eingeben";
+                        txtLäng.ToolTip = "Wert für die Länge eingeben";
 
                         // ***Leeren der Textboxen***
                         txt1.Clear();
@@ -314,8 +317,8 @@ namespace Profil_Rechner_GUI
                         lbZahl1.Content = "R";
 
                         // *Tooltips der Textboxen*
-                        txt1.ToolTip = "Wert für h eingeben";
-                        txtLäng.ToolTip = "Wert für die Höhe eingeben";
+                        txt1.ToolTip = "Wert für R (Radius) eingeben";
+                        txtLäng.ToolTip = "Wert für die Länge eingeben";
 
                         // ***Leeren der Textboxen***
                         txt1.Clear();
