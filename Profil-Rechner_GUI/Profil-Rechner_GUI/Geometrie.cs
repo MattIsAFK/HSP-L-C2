@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Profil_Rechner_GUI
 {
-    abstract class Geometrie
+    public abstract class Geometrie
     {
         /// <summary>
         /// Länge der Profilgeometrie
