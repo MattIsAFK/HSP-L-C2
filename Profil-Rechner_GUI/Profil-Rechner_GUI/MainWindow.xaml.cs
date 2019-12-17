@@ -354,12 +354,13 @@ namespace Profil_Rechner_GUI
         {
             var selectedItem = (TreeViewItem)trvProfil.SelectedItem;
 
-            // Deklaration der Variabeln
+            /* Deklaration der Variabeln
             string strZahl1;
             string strZahl2;
             string strZahl3;
             string strZahl4;
             string strZahl5;
+            */
 
             txtVol.Visibility = Visibility.Visible; // Textbox vom Volumen sichtbar machen
 
@@ -382,6 +383,9 @@ namespace Profil_Rechner_GUI
 
                             */
 
+                            //Klasse Kasten existiert noch nicht
+                            //Geo = new Kasten(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text),Convert.ToDouble(txt3.Text),Convert.ToDouble(txt4.Text), Convert.ToDouble(txtLäng.Text));
+
                             break;
                         }
 
@@ -403,11 +407,18 @@ namespace Profil_Rechner_GUI
                         }
                     case "itmDreieck":
                         {
+                            /*
                             strZahl1 = txt1.Text; // b
                             strZahl2 = txt2.Text; // h
                             strZahl3 = txtLäng.Text; // Höhe
 
                             txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+                            */
+
+                           //Klasse Dreieck existiert noch nicht 
+                           //Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
+                           
+
                             break;
                         }
                     case "itmKreis":
@@ -434,6 +445,7 @@ namespace Profil_Rechner_GUI
                             Geo = new Sechseck(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
                             break;
                         }
+                    default: return;
 
                 }
             }
