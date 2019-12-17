@@ -6,7 +6,7 @@ namespace Profil_Rechner_GUI
 {
     static class Rechnungen
     {
-        public static bool Ueberpruefen(string strZahl)
+        private static bool Ueberpruefen(string strZahl)
         {
             if (strZahl.Contains("."))
             {
