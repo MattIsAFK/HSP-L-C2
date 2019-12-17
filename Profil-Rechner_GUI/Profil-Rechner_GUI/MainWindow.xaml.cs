@@ -1,10 +1,15 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Profil_Rechner_GUI.Geometrien;
 
 namespace Profil_Rechner_GUI
 {
     public partial class MainWindow
     {
+        private Geometrie _Geo = null;
+
+        internal Geometrie Geo { get => _Geo; set => _Geo = value; }
+
         private static double SafeCast(string text)
         {
             if (!double.TryParse(text, out var result)) return 0;
@@ -13,7 +18,7 @@ namespace Profil_Rechner_GUI
 
         private void EnableCalculation()
         {
-            var selectedItem = (TreeViewItem)trvProfil.SelectedItem;
+            TreeViewItem selectedItem = (TreeViewItem)trvProfil.SelectedItem;
 
             // **Überschrift einstellen
             lbProfil.Visibility = Visibility.Visible;
@@ -376,12 +381,23 @@ namespace Profil_Rechner_GUI
 
                 case "itmRechteck":
                     {
+                        
+
                         strZahl1 = txt1.Text; // a
                         strZahl2 = txt2.Text; // b
                         strZahl3 = txtLäng.Text; // Höhe
 
+                        double a = SafeCast(strZahl1);
+                        double b = SafeCast(strZahl2);
+                        double l = SafeCast(strZahl3);
+
+                        Geo = new Rechteck(a,b,l);
+
                         // Ausgabe
-                        txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+                        //txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+
+                        txtVol.Text = GetGeo().GetVolumen().ToString();
+
                         break;
                     }
                 case "itmDreieck":
@@ -426,6 +442,9 @@ namespace Profil_Rechner_GUI
 
         private void bnCatia_Click(object sender, RoutedEventArgs e)
         {
+            CatiaConnection cc = new CatiaConnection();
+
+            /*
             BalkenInCatia objBalkeninCatia = new BalkenInCatia();   // Objekt der class BalkeninCatia
 
             if (!objBalkeninCatia.CATIAläuft())
@@ -481,7 +500,12 @@ namespace Profil_Rechner_GUI
                             break;
                         }
                 }
-            }
+            }*/
+        }
+
+        protected ref Geometrie GetGeo()
+        {
+            return ref _Geo;
         }
     }
 }
