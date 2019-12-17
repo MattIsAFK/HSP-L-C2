@@ -1,15 +1,21 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using Profil_Rechner_GUI.Geometrien;
 
 namespace Profil_Rechner_GUI
 {
     public partial class MainWindow
     {
+        private Geometrie _Geo;
+                
+
         private static double SafeCast(string text)
         {
-            if (!double.TryParse(text, out var result)) return 0;
+            if (!double.TryParse(text, out double result)) return 0;
             return result;
         }
+
 
         private void EnableCalculation()
         {
@@ -358,58 +364,90 @@ namespace Profil_Rechner_GUI
             txtVol.Visibility = Visibility.Visible; // Textbox vom Volumen sichtbar machen
 
             // Starten der Berechnungen
-
-            switch (selectedItem.Name)
+            try
             {
-                case "itmKasten":
-                    {
-                        strZahl1 = txt1.Text; // B
-                        strZahl2 = txt2.Text; // H
-                        strZahl3 = txt3.Text; // b
-                        strZahl4 = txt4.Text; // h
-                        strZahl5 = txtLäng.Text; // Höhe
+                switch (selectedItem.Name)
+                {
+                    case "itmKasten":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // B
+                            strZahl2 = txt2.Text; // H
+                            strZahl3 = txt3.Text; // b
+                            strZahl4 = txt4.Text; // h
+                            strZahl5 = txtLäng.Text; // Höhe
 
-                        // Ausgabe
-                        txtVol.Text = Rechnungen.fKasten(strZahl1, strZahl2, strZahl3, strZahl4, strZahl5).ToString("#.###");
-                        break;
-                    }
+                            // Ausgabe
+                            txtVol.Text = Rechnungen.fKasten(strZahl1, strZahl2, strZahl3, strZahl4, strZahl5).ToString("#.###");
 
-                case "itmRechteck":
-                    {
-                        strZahl1 = txt1.Text; // a
-                        strZahl2 = txt2.Text; // b
-                        strZahl3 = txtLäng.Text; // Höhe
+                            */
 
-                        // Ausgabe
-                        txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
-                        break;
-                    }
-                case "itmDreieck":
-                    {
-                        strZahl1 = txt1.Text; // b
-                        strZahl2 = txt2.Text; // h
-                        strZahl3 = txtLäng.Text; // Höhe
+                            break;
+                        }
 
-                        txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
-                        break;
-                    }
-                case "itmKreis":
-                    {
-                        strZahl1 = txt1.Text; // r
-                        strZahl2 = txtLäng.Text; // Höhe
+                    case "itmRechteck":
+                        {
 
-                        txtVol.Text = Rechnungen.fKreis(strZahl1, strZahl2).ToString("#.###");
-                        break;
-                    }
-                case "itmSecheck":
-                    {
-                        strZahl1 = txt1.Text; // R
-                        strZahl2 = txtLäng.Text; // Höhe
+                            /*
+                            strZahl1 = txt1.Text; // a
+                            strZahl2 = txt2.Text; // b
+                            strZahl3 = txtLäng.Text; // Höhe
 
-                        txtVol.Text = Rechnungen.fSechseck(strZahl1, strZahl2).ToString("#.###");
-                        break;
-                    }
+
+
+                            // Ausgabe
+                            txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+                            */
+                            Geo = new Rechteck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
+                    case "itmDreieck":
+                        {
+                            strZahl1 = txt1.Text; // b
+                            strZahl2 = txt2.Text; // h
+                            strZahl3 = txtLäng.Text; // Höhe
+
+                            txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+                            break;
+                        }
+                    case "itmKreis":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // r
+                            strZahl2 = txtLäng.Text; // Höhe
+
+                            txtVol.Text = Rechnungen.fKreis(strZahl1, strZahl2).ToString("#.###");
+                            */
+
+                            Geo = new Kreis(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
+                    case "itmSecheck":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // R
+                            strZahl2 = txtLäng.Text; // Höhe
+
+                            txtVol.Text = Rechnungen.fSechseck(strZahl1, strZahl2).ToString("#.###");
+                            */
+
+                            Geo = new Sechseck(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
+
+                }
             }
+            catch(FormatException ex)
+            {
+                MessageBox.Show("Die Eingabe muss nummerisch sein."+Environment.NewLine+ex.Message,"Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show( ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            txtVol.Text = Geo.GetVolumen().ToString();
             bnCatia.IsEnabled = true;
         }
 
@@ -483,5 +521,7 @@ namespace Profil_Rechner_GUI
                 }
             }
         }
+
+        internal Geometrie Geo { get => _Geo; set => _Geo = value; }
     }
 }
