@@ -135,12 +135,14 @@ namespace Profil_Rechner_GUI.Geometrien
         public void SetBreite1(double pBreite1)
         {
             if (pBreite1 >= 0) zBreite1 = pBreite1;
-            else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
+            else throw new ArgumentOutOfRangeException("'B' muss einen positiven Wert annehmen");
         }
         public void SetBreite2(double pBreite2)
         {
-            if (pBreite2 >= 0) zBreite1 = pBreite2;
-            else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
+            if (!(pBreite2 >= 0)) throw new ArgumentOutOfRangeException("'b' muss einen positiven Wert annehmen");
+
+            if (pBreite2 > GetBreite1()) zHoehe2 = pBreite2;
+            else throw new ConsistencyException("'b'muss einen kleineren Wert als 'B' annehmen");
         }
 
 
@@ -168,13 +170,15 @@ namespace Profil_Rechner_GUI.Geometrien
         public void SetHoehe1(double pHoehe1)
         {
             if (pHoehe1 >= 0) zHoehe1 = pHoehe1;
-            else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
+            else throw new ArgumentOutOfRangeException("'H' muss einen positiven Wert annehmen");
         }
 
         public void SetHoehe2(double pHoehe2)
         {
-            if (pHoehe2 >= 0) zHoehe2 = pHoehe2;
-            else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
+            if (!(pHoehe2 >= 0)) throw new ArgumentOutOfRangeException("'h' muss einen positiven Wert annehmen");
+
+            if (pHoehe2 > GetHoehe1()) zHoehe2 = pHoehe2;
+            else throw new ConsistencyException("'h'muss einen kleineren Wert als 'H' annehmen");
         }
     }
 }
