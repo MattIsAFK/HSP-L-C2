@@ -51,15 +51,7 @@ namespace Profil_Rechner_GUI.Geometrien
             FlaechenTraegheit [0] =  Math.Pow(2 * GetRadius(), 4) * Math.PI / 64;
             return FlaechenTraegheit;
         }
-        /// <summary>
-        /// Aus den gegeben Parametern wird das Volumen eines Kreisprofils berechnet.
-        /// </summary>
-        /// <returns>Volumen</returns>
-        public override double GetVolumen()
-        {
-            double eVolumen = Math.PI * GetRadius() * GetRadius() * GetLaenge();
-            return eVolumen;
-        }
+
         /// <summary>
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
         /// </summary>
