@@ -123,5 +123,8 @@
     <Resource Include="Bilder\Sechseck.png" />
     <Resource Include="Bilder\Träger.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bilder\Kreis.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
