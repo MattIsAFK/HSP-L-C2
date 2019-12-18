@@ -32,6 +32,8 @@ namespace Profil_Rechner_GUI
         public abstract double GetFlaecheninhalt();
 
         public abstract double[] GetFlaechenTraegheit();
+        
+        public abstract double GetMantelflaeche();
 
         /// <summary>
         /// Ermöglicht die sichere Verwendung eines entsprechenden Textfeldes.
@@ -81,12 +83,12 @@ namespace Profil_Rechner_GUI
         }
 
         /// <summary>
-        /// Berechnet die Mantelflaeche des Profils mithilfe gegebener Methoden der Subklassen.
+        /// Berechnet die Oberfläche des Profils mithilfe gegebener Methoden
         /// </summary>
-        /// <returns>Mantelflaeche des Profils</returns>
-        virtual public double GetMantelflaeche()
+        /// <returns>Oberfläche des Profils</returns>
+        virtual public double GetOberflaeche()
         {
-            throw new NotImplementedException("Schade! :(");
+            return 2 * GetFlaecheninhalt() + GetMantelflaeche();
         }
 
         /// <summary>
