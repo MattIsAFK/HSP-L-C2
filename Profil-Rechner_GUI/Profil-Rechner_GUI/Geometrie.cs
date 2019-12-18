@@ -80,6 +80,15 @@ namespace Profil_Rechner_GUI
         }
 
         /// <summary>
+        /// Berechnet die Mantelflaeche des Profils mithilfe gegebener Methoden der Subklassen.
+        /// </summary>
+        /// <returns>Mantelflaeche des Profils</returns>
+        virtual public double GetMantelflaeche()
+        {
+            throw new NotImplementedException("Schade! :(");
+        }
+
+        /// <summary>
         /// Getter der Profillänge
         /// </summary>
         /// <returns>Profillänge</returns>
