@@ -11,32 +11,40 @@ namespace Profil_Rechner_GUI.Geometrien
 
         /// Variabeln für ein Kastenprofil
 
-        private double zBreite;
-        private double zHoehe;
+        private double zBreite1;
+        private double zBreite2;
+        private double zHoehe1;
+        private double zHoehe2;
 
         /// Erzeugt einen Kasten mit allen Variablen 0
 
-        public Kasten() : this(0, 0, 0) { }
+        public Kasten() : this(0, 0, 0, 0, 0) { }
 
         /// <summary>
         /// Erzeugt einen neuen Kasten mit den vorherigen Maßen und der Laenge 0
         /// </summary>
-        /// <param name="pBreite"></param>
-        /// <param name="pHoehe"></param>
+        /// <param name="pBreite1"></param>
+        /// <param name="pHoehe1"></param>
+        /// <param name="pBreite2"></param>
+        /// <param name="pHoehe2"></param> 
 
-        public Kasten(double pBreite, double pHoehe) : this(pBreite, pHoehe, 0) { }
+        public Kasten(double pBreite1, double pHoehe1) : this(pBreite1, pHoehe1, pBreite2, pHoehe2, 0) { }
 
         /// <summary>
         /// Erzeugt einen neuen Kasten mit den jeweiligen Maßen
         /// </summary>
-        /// <param name="pBreite"></param>
-        /// <param name="pHoehe"></param>
+        /// <param name="pBreite1"></param>
+        /// <param name="pHoehe1"></param>
+        /// <param name="pBreite2"></param>
+        /// <param name="pHoehe2"></param>
         /// <param name="pLaenge"></param>
 
-        public Kasten(double pBreite, double pHoehe, double pLaenge) : base(pLaenge)
+        public Kasten(double pBreite1, double pHoehe1, double pBreite2, double pHoehe2, double pLaenge) : base(pLaenge)
         {
-            this.SetBreite(pBreite);
-            this.SetHoehe(pHoehe);
+            this.SetBreite1(pBreite1);
+            this.SetHoehe1(pHoehe1);
+            this.SetBreite2(pBreite2);
+            this.SetHoehe2(pHoehe2);
         }
 
 
@@ -47,7 +55,9 @@ namespace Profil_Rechner_GUI.Geometrien
 
         public override double GetFlaecheninhalt()
         {
-            throw new NotImplementedException();
+            return gethoehe
+
+            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -69,12 +79,21 @@ namespace Profil_Rechner_GUI.Geometrien
             throw new NotImplementedException();
         }
 
-        public void SetBreite(double pBreite)
+        public void SetBreite1(double pBreite1)
         {
             throw new NotImplementedException();
         }
 
-        public void SetHoehe(double pHoehe)
+        public void SetHoehe1(double pHoehe1)
+        {
+            throw new NotImplementedException();
+        }
+        public void SetBreite2(double pBreite2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetHoehe2(double pHoehe2)
         {
             throw new NotImplementedException();
         }
