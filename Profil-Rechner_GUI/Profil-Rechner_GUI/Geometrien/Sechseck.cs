@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MECMOD;
 
 namespace Profil_Rechner_GUI.Geometrien
 {
@@ -73,6 +74,17 @@ namespace Profil_Rechner_GUI.Geometrien
             return 6 * GetBreite() * GetLaenge();
         }
 
+        /////////////////////////////////////////////////////////////////////////////
+        /// CATIA-Part
+
+        /// <summary>
+        /// Erzeuge ein Sechseckprofil in CATIA
+        /// </summary>
+
+        internal void ErzeugeProfilSechseck(ref Sketch sketch)
+        {
+            throw new NotImplementedException();
+        }
 
         /////////////////////////////////////////////////////////////////////////////
         /// GET and SET
