@@ -31,9 +31,8 @@ namespace Profil_Rechner_GUI
             try
             {
                 //Kapselung in MEssage Box nur zu Testzwecken
-                MessageBox.Show( System.Runtime.InteropServices.Marshal.IsComObject(CatiaApplication).ToString(), "CATIA Verbunden", MessageBoxButton.OK, MessageBoxImage.Information);
-                
-                return true;
+                if(System.Runtime.InteropServices.Marshal.IsComObject(CatiaApplication))return true;
+                return false;
             }
             catch (System.Runtime.InteropServices.COMException e)
             {
@@ -58,6 +57,15 @@ namespace Profil_Rechner_GUI
             {
                 MessageBox.Show("Keine Instanz von CATIA gefunden." + Environment.NewLine + e.Message, "Verbindungsfehler", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+        }
+
+        public void PrepareCATIA()
+        {
+            CreatePart(out PartDocument value);
+            PartDocument = value;
+            ProfilSkizze = ErstelleLeereSkizze();
+            ErzeugeAchsensystem(ref GetProfilSkizze());
 
         }
 
