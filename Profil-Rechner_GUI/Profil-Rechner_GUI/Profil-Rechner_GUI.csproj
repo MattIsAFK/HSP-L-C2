@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConsistencyException.cs" />
     <Compile Include="Geometrie.cs" />
     <Compile Include="Geometrien\Kreis.cs" />
     <Compile Include="Geometrien\Rechteck.cs" />
