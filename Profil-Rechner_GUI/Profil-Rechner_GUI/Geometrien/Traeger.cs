@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MECMOD;
 
 namespace Profil_Rechner_GUI.Geometrien
 {
@@ -106,7 +107,17 @@ namespace Profil_Rechner_GUI.Geometrien
             return eOberflaeche;
         }
 
+        /////////////////////////////////////////////////////////////////////////////
+        /// CATIA-Part
 
+        /// <summary>
+        /// Erzeuge ein Traegerprofil in CATIA
+        /// </summary>
+
+        internal void ErzeugeProfilTraeger(ref Sketch sketch)
+        {
+            throw new NotImplementedException();
+        }
 
         /////////////////////////////////////////////////////////////////////////////
         /// GET and SET
