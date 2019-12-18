@@ -67,7 +67,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Parametern wird die Mantelflaeche eines Kreisprofils berechnet.
         /// </summary>
         /// <returns>Mantelflache</returns>
-        public double GetMantelflaeche()
+        public override double GetMantelflaeche()
         {
 
             double eMantelflaeche = 2 * Math.PI * GetRadius() * GetLaenge();
