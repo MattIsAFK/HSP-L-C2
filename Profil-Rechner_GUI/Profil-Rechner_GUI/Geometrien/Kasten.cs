@@ -56,10 +56,8 @@ namespace Profil_Rechner_GUI.Geometrien
         public override double GetFlaecheninhalt()
         {
 
-            return (GetHoehe1() *  )
+            return (GetHoehe1() * GetBreite1() - GetHoehe2() * GetBreite2() );
 
-
-            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -90,24 +88,73 @@ namespace Profil_Rechner_GUI.Geometrien
             throw new NotImplementedException();
         }
 
-        public void SetBreite1(double pBreite1)
+        /////////////////////////////////////////////////////////////////////////////
+        /// GET and SET
+
+        /// <summary>
+        /// Getter für die Felder Breite des Kastens.
+        /// </summary>
+        /// <returns>Breiten des Kastens</returns>
+        public double GetBreite1()
         {
-            throw new NotImplementedException();
+            return zBreite1;
         }
 
-        public void SetHoehe1(double pHoehe1)
+        public double GetBreite2()
         {
-            throw new NotImplementedException();
+            return zBreite2;
+        }
+
+        /// <summary>
+        /// Überprüft, dass der übergebene Parameter nicht negativ ist.
+        /// Im positiven Fall wird die Objektvariable entsprechend gesetzt, andernfalls eine Exception geworfen
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <param name="pBreite1">Breite des Kastens</param>
+        /// /// <param name="pBreite2">Breite des Kastens</param>
+        public void SetBreite1(double pBreite1)
+        {
+            if (pBreite1 >= 0) zBreite1 = pBreite1;
+            else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
         }
         public void SetBreite2(double pBreite2)
         {
-            throw new NotImplementedException();
+            if (pBreite2 >= 0) zBreite1 = pBreite2;
+            else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
+        }
+
+
+
+        /// <summary>
+        /// Getter der Höhe des Kastens.
+        /// </summary>
+        /// <returns>Höhe des Kastens</returns>
+        public double GetHoehe1()
+        {
+            return zHoehe1;
+        }
+        public double GetHoehe2()
+        {
+            return zHoehe2;
+        }
+
+        /// <summary>
+        /// Überprüft, dass der übergebene Parameter nicht negativ ist.
+        /// Im positiven Fall wird die Objektvariable entsprechend gesetzt, andernfalls eine Exception geworfen
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <param name="pHoehe1">Höhe des Kastens</param>
+        /// <param name="pHoehe2">Höhe des Kastens</param>
+        public void SetHoehe1(double pHoehe1)
+        {
+            if (pHoehe1 >= 0) zHoehe1 = pHoehe1;
+            else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
         }
 
         public void SetHoehe2(double pHoehe2)
         {
-            throw new NotImplementedException();
+            if (pHoehe2 >= 0) zHoehe2 = pHoehe2;
+            else throw new ArgumentOutOfRangeException("Höhe muss einen positiven Wert annehmen");
         }
-
     }
 }
