@@ -61,6 +61,16 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
+        /// Berechnet die Flaechentraegheit des Kastenprofils mit den global verfügbaren Parametern der Klasse.
+        /// </summary>
+        /// <return>Flaechentraegheit des Kastenprofils</return>
+
+        public override double[] GetFlaechenTraegheit()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
         /// </summary>
         /// <returns>Flaechenträgheit Ix</returns>
@@ -69,16 +79,6 @@ namespace Profil_Rechner_GUI.Geometrien
             double eFlaechenTraegheit_Ix = (((GetBreite1() * Math.Pow(GetHoehe1(), 3)) - (GetBreite2() * Math.Pow(GetHoehe2(), 3))) / 12);
 
             return eFlaechenTraegheit_Ix;
-        }
-
-        /// <summary>
-        /// Berechnet die Flaechentraegheit des Kastenprofils mit den global verfügbaren Parametern der Klasse.
-        /// </summary>
-        /// <return>Flaechentraegheit des Kastenprofils</return>
-
-        public override double[] GetFlaechenTraegheit()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
