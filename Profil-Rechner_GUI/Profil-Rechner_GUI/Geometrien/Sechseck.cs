@@ -74,6 +74,7 @@ namespace Profil_Rechner_GUI.Geometrien
             return 6 * GetBreite() * GetLaenge();
         }
 
+
         /////////////////////////////////////////////////////////////////////////////
         /// CATIA-Part
 
