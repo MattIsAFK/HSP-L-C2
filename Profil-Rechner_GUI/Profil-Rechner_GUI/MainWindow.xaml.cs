@@ -16,21 +16,6 @@ namespace Profil_Rechner_GUI
             return result;
         }
 
-
-        private void EnableCalculation()
-        {
-            var selectedItem = (TreeViewItem)trvProfil.SelectedItem;
-
-            // **Überschrift einstellen
-            lbProfil.Visibility = Visibility.Visible;
-            lbProfil.Content = selectedItem.Header;
-
-            bnRechne.IsEnabled = true;
-            bnRechne.IsDefault = true;
-
-            bnCatia.IsEnabled = false;
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -66,10 +51,7 @@ namespace Profil_Rechner_GUI
 
         public void trvProfil_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var selectedItem = (TreeViewItem)trvProfil.SelectedItem;
-
-
-
+            TreeViewItem selectedItem = (TreeViewItem)trvProfil.SelectedItem;
 
             switch (selectedItem.Name)
             {
@@ -103,15 +85,6 @@ namespace Profil_Rechner_GUI
                         txt2.ToolTip = "Wert für 'b' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -145,15 +118,6 @@ namespace Profil_Rechner_GUI
                         txt2.ToolTip = "Wert für 'h' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -196,15 +160,6 @@ namespace Profil_Rechner_GUI
                         txt4.ToolTip = "Wert für 'h' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge des Profils eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -236,15 +191,6 @@ namespace Profil_Rechner_GUI
                         txt1.ToolTip = "Wert für 'R' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -288,15 +234,6 @@ namespace Profil_Rechner_GUI
                         txt4.ToolTip = "Wert für 'h' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
                 case "itmKreis":
@@ -326,15 +263,6 @@ namespace Profil_Rechner_GUI
                         txt1.ToolTip = "Wert für R (Radius) eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
                 default:
@@ -345,9 +273,27 @@ namespace Profil_Rechner_GUI
                         bnCatia.IsEnabled = false;
 
                         MessageBox.Show("Dieses Profil wurde noch nicht programmiert.", "Work in Progress", MessageBoxButton.OK, MessageBoxImage.Error);
-                        break;
+                        return;
                     }
             }
+            // ***Leeren der Textboxen***
+            txt1.Clear();
+            txt2.Clear();
+            txt3.Clear();
+            txt4.Clear();
+            txtLäng.Clear();
+            txtVol.Clear();
+
+            // **Überschrift einstellen
+            lbProfil.Visibility = Visibility.Visible;
+            lbProfil.Content = ((TreeViewItem)trvProfil.SelectedItem).Header;
+
+            // **Button "Berechnen" aktiv und default setzen
+            bnRechne.IsEnabled = true;
+            bnRechne.IsDefault = true;
+
+            // **Buton CATIA deaktivieren
+            bnCatia.IsEnabled = false;
         }
 
         private void bnRechne_Click(object sender, RoutedEventArgs e)
@@ -446,8 +392,9 @@ namespace Profil_Rechner_GUI
                             break;
                         }
                     default: return;
-
+ 
                 }
+                // throw new ConsistencyException("Was für ein Blödsinn");
             }
             catch(FormatException ex)
             {
@@ -457,6 +404,11 @@ namespace Profil_Rechner_GUI
             catch(ArgumentOutOfRangeException ex)
             {
                 MessageBox.Show( ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            catch(ConsistencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             txtVol.Text = Geo.GetVolumen().ToString();
