@@ -50,6 +50,16 @@ namespace Profil_Rechner_GUI.Geometrien
             return GetHoehe() * GetBreite();
         }
 
+        public override double GetMantelflaeche()
+        {
+            double eMantelflaeche = 0;
+
+            eMantelflaeche += 2 * GetBreite() * GetLaenge();
+            eMantelflaeche += 2 * GetHoehe() * GetLaenge();
+
+            return eMantelflaeche;
+        }
+
         /// <summary>
         /// Zusammenfassung der einzelnen Methoden für Ausgabe in Array 
         /// </summary>
@@ -67,6 +77,7 @@ namespace Profil_Rechner_GUI.Geometrien
 
             return flaechentraegheiten;
         }
+
         /// <summary>
         /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
         /// </summary>
@@ -120,21 +131,6 @@ namespace Profil_Rechner_GUI.Geometrien
             else { throw new ArgumentOutOfRangeException("Dichte muss einen positiven Wert annehmen"); }
 
             return eGewicht;
-        }
-
-        /// <summary>
-        /// Berechnet die Oberfläche des Profils aus den gegebenen, globalen, Feldwerten.
-        /// </summary>
-        /// <returns>Oberfläche des Profils</returns>
-        public double GetOberflaeche()
-        {
-            double eOberflaeche = 0;
-
-            eOberflaeche += 2 * GetFlaecheninhalt();
-            eOberflaeche += 2 * GetBreite() * GetLaenge();
-            eOberflaeche += 2 * GetHoehe() * GetLaenge();
-
-            return eOberflaeche;
         }
 
         /////////////////////////////////////////////////////////////////////////////
