@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MECMOD;
 
 namespace Profil_Rechner_GUI
 {
@@ -77,6 +78,15 @@ namespace Profil_Rechner_GUI
         virtual public double GetVolumen()
         {
             return GetFlaecheninhalt() * GetLaenge();
+        }
+
+        /// <summary>
+        /// Berechnet die Mantelflaeche des Profils mithilfe gegebener Methoden der Subklassen.
+        /// </summary>
+        /// <returns>Mantelflaeche des Profils</returns>
+        virtual public double GetMantelflaeche()
+        {
+            throw new NotImplementedException("Schade! :(");
         }
 
         /// <summary>

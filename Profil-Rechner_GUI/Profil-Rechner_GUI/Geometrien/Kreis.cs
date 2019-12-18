@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MECMOD;
 
 
 namespace Profil_Rechner_GUI.Geometrien
@@ -71,6 +72,21 @@ namespace Profil_Rechner_GUI.Geometrien
 
             double eMantelflaeche = 2 * Math.PI * GetRadius() * GetLaenge();
             return eMantelflaeche;
+        }
+
+
+
+        /////////////////////////////////////////////////////////////////////////////
+        /// CATIA-Part
+
+
+        /// <summary>
+        /// Erzeuge ein Kreisprofil in CATIA
+        /// </summary>
+    
+        internal void ErzeugeProfilKreis(ref Sketch sketch)
+        {
+            throw new NotImplementedException();
         }
 
         /////////////////////////////////////////////////////////////////////////////

@@ -14,6 +14,18 @@ namespace Profil_Rechner_GUI
             throw new NotImplementedException();
         }
 
+        internal void ErzeugeProfilDreieck(double dBreiteGroß, double dHöheGroß, double dBreiteKlein, double dHöheKlein)
+        {
+            throw new NotImplementedException();
+        }
+        internal void ErzeugeProfilSechseck(double dBreiteGroß, double dHöheGroß, double dBreiteKlein, double dHöheKlein)
+        {
+            throw new NotImplementedException();
+        }
+        internal void ErzeugeProfilTraeger(double dBreiteGroß, double dHöheGroß, double dBreiteKlein, double dHöheKlein)
+        {
+            throw new NotImplementedException();
+        }
         internal void ErzeugeSkizze()
         {
             throw new NotImplementedException();

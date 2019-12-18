@@ -8,12 +8,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Profil_Rechner_GUI</RootNamespace>
     <AssemblyName>Profil-Rechner_GUI</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,9 +72,11 @@
     <Compile Include="ConsistencyException.cs" />
     <Compile Include="Geometrie.cs" />
     <Compile Include="Geometrien\Dreieck.cs" />
+    <Compile Include="Geometrien\Kasten.cs" />
     <Compile Include="Geometrien\Kreis.cs" />
     <Compile Include="Geometrien\Rechteck.cs" />
     <Compile Include="Geometrien\Sechseck.cs" />
+    <Compile Include="Geometrien\Traeger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Rechnungen.cs" />
     <Page Include="MainWindow.xaml">
