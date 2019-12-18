@@ -362,7 +362,7 @@ namespace Profil_Rechner_GUI
                             */
 
                            //Klasse Dreieck existiert noch nicht 
-                           //Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
+                           Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
                            
 
                             break;
@@ -395,6 +395,9 @@ namespace Profil_Rechner_GUI
  
                 }
                 // throw new ConsistencyException("Was für ein Blödsinn");
+
+                //Ausgabe des Volumens
+                txtVol.Text = Geo.GetVolumen().ToString();
             }
             catch(FormatException ex)
             {
@@ -411,7 +414,12 @@ namespace Profil_Rechner_GUI
                 MessageBox.Show(ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            txtVol.Text = Geo.GetVolumen().ToString();
+            catch(NotImplementedException ex)
+            {
+                MessageBox.Show(ex.Message, "Die Entwickler waren zu faul", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             bnCatia.IsEnabled = true;
         }
 

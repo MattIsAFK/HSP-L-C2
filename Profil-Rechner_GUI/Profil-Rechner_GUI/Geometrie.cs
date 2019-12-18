@@ -32,7 +32,52 @@ namespace Profil_Rechner_GUI
 
         public abstract double[] GetFlaechenTraegheit();
 
-        public abstract double GetVolumen();
+        /// <summary>
+        /// Ermöglicht die sichere Verwendung eines entsprechenden Textfeldes.
+        /// Nicht alle Profile haben einen Wert dafür, daher ist eine Implementation auf jeder Subklasse unnötig.
+        /// Sollte dennoch eine Funktion aus versehen aufgerufen werden, ist eine Fehelrbehandlung möglich.
+        /// </summary>
+        public virtual double GetFlaechenTraegheit_Ix()
+        {
+            throw new NotImplementedException("Schade! :(");
+        }
+        /// <summary>
+        /// Ermöglicht die sichere Verwendung eines entsprechenden Textfeldes.
+        /// Nicht alle Profile haben einen Wert dafür, daher ist eine Implementation auf jeder Subklasse unnötig.
+        /// Sollte dennoch eine Funktion aus versehen aufgerufen werden, ist eine Fehelrbehandlung möglich.
+        /// </summary>
+        public virtual double GetFlaechenTraegheit_Iy()
+        {
+            throw new NotImplementedException("Schade! :(");
+        }
+        /// <summary>
+        /// Ermöglicht die sichere Verwendung eines entsprechenden Textfeldes.
+        /// Nicht alle Profile haben einen Wert dafür, daher ist eine Implementation auf jeder Subklasse unnötig.
+        /// Sollte dennoch eine Funktion aus versehen aufgerufen werden, ist eine Fehelrbehandlung möglich.
+        /// </summary>
+        public virtual double GetBiegeWiderstandsMoment_Wx()
+        {
+            throw new NotImplementedException("Schade! :(");
+        }
+
+        /// <summary>
+        /// Ermöglicht die sichere Verwendung eines entsprechenden Textfeldes.
+        /// Nicht alle Profile haben einen Wert dafür, daher ist eine Implementation auf jeder Subklasse unnötig.
+        /// Sollte dennoch eine Funktion aus versehen aufgerufen werden, ist eine Fehelrbehandlung möglich.
+        /// </summary>
+        public virtual double GetBiegeWiderstandsMoment_Wy()
+        {
+            throw new NotImplementedException("Schade! :(");
+        }
+
+        /// <summary>
+        /// Berechnet das (Material-)Volumen des Profils mithilfe gegebener Methoden der Subklassen.
+        /// </summary>
+        /// <returns>(Material-)Volmumen des Profils</returns>
+        virtual public double GetVolumen()
+        {
+            return GetFlaecheninhalt() * GetLaenge();
+        }
 
         /// <summary>
         /// Getter der Profillänge

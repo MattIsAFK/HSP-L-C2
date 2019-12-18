@@ -63,16 +63,6 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Aus den gegeben Parametern wird das Volumen eines Sechseckprofils berechnet.
-        /// </summary>
-        /// <returns>Volumen</returns>
-        public override double GetVolumen()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
