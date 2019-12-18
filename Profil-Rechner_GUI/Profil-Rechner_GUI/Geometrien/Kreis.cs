@@ -11,7 +11,6 @@ namespace Profil_Rechner_GUI.Geometrien
     class Kreis : Geometrie
     {
         private double zRadius;
-        private double zLaenge;
         /// <summary>
         /// Erzeugt einen neuen Kreis mit allen Feldwerten 0
         /// </summary>
@@ -52,15 +51,7 @@ namespace Profil_Rechner_GUI.Geometrien
             FlaechenTraegheit [0] =  Math.Pow(2 * GetRadius(), 4) * Math.PI / 64;
             return FlaechenTraegheit;
         }
-        /// <summary>
-        /// Aus den gegeben Parametern wird das Volumen eines Kreisprofils berechnet.
-        /// </summary>
-        /// <returns>Volumen</returns>
-        public override double GetVolumen()
-        {
-            double eVolumen = Math.PI * GetRadius() * GetRadius() * GetLaenge();
-            return eVolumen;
-        }
+
         /// <summary>
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
         /// </summary>
@@ -101,7 +92,6 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <param name="pRadius">Radius des Kreisprofils</param>
         /// 
-
         public void SetRadius(double pRadius)
         {
             if (pRadius >= 0) zRadius = pRadius;

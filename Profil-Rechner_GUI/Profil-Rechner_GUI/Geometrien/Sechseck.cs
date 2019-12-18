@@ -36,6 +36,7 @@ namespace Profil_Rechner_GUI.Geometrien
             this.SetLaenge(pLaenge);
         }
 
+
         /// <summary>
         /// Berechnet den Flaecheninhalt des Sechsecks mit den global verfuegbaren Parametern der Klasse.
         /// </summary>
@@ -65,24 +66,17 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Aus den gegeben Parametern wird das Volumen eines Sechseckprofils berechnet.
-        /// </summary>
-        /// <returns>Volumen</returns>
-        public override double GetVolumen()
-        {
-
-            return ((3 / 2) * GetBreite() * GetBreite() * Math.Sqrt(3)) * GetLaenge();
-            
-        }
-
-
-        /// <summary>
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
         public double GetOberflaeche()
         {
             return 6 * GetBreite() * GetLaenge();
+        }
+
+        public void SetBreite(double pBreite)
+        {
+            throw new NotImplementedException();
         }
 
 
@@ -108,6 +102,7 @@ namespace Profil_Rechner_GUI.Geometrien
         {
             if (pBreite >= 0) zBreite = pBreite;
             else throw new ArgumentOutOfRangeException("Breite muss einen positiven Wert annehmen");
+
         }
 
     }
