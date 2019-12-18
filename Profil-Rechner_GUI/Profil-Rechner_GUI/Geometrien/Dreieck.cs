@@ -1,4 +1,5 @@
 ﻿using System;
+using MECMOD;
 
 namespace Profil_Rechner_GUI.Geometrien
 {
@@ -68,6 +69,22 @@ namespace Profil_Rechner_GUI.Geometrien
         {
             return ((GetHoehe() * Math.Pow(GetBreite(), 3)) / 48);
         }
+
+
+        /////////////////////////////////////////////////////////////////////////////
+        /// CATIA-Part
+
+
+        /// <summary>
+        /// Erzeuge ein Dreieckprofil in CATIA
+        /// </summary>
+
+        internal void ErzeugeProfilDreieck(ref Sketch sketch)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         /////////////////////////////////////////////////////////////////////////////
         /// GET and SET
