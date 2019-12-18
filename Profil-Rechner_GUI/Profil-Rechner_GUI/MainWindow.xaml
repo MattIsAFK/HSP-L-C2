@@ -94,7 +94,7 @@
                 <Image x:Name="IBRechteck" Visibility="Hidden" Grid.Column="0" Grid.Row="0" Source="Bilder/Rechteck.png"/>
                 <Image x:Name="IBSechseck" Visibility="Hidden" Grid.Column="0" Grid.Row="0" Source="Bilder/Sechseck.png"/>
                 <Image x:Name="IBTräger" Visibility="Hidden" Grid.Column="0" Grid.Row="0" Source="Bilder/Träger.PNG"/>
-                <Image x:Name="IBKreis" Visibility="Hidden" Grid.Column="0" Grid.Row="0" Source="Bilder/Kreis.png"/>
+                <Image x:Name="IBKreis" Visibility="Hidden" Grid.Column="0" Grid.Row="0" Source="Bilder/Kreis.PNG"/>
             </Grid>
         </Grid>
     </Grid>
