@@ -61,6 +61,17 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
+        /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
+        /// </summary>
+        /// <returns>Flaechenträgheit Ix</returns>
+        public override double GetFlaechenTraegheit_Ix()
+        {
+            double eFlaechenTraegheit_Ix = (((GetBreite1() * Math.Pow(GetHoehe1(), 3)) - (GetBreite2() * Math.Pow(GetHoehe2(), 3))) / 12);
+
+            return eFlaechenTraegheit_Ix;
+        }
+
+        /// <summary>
         /// Berechnet die Flaechentraegheit des Kastenprofils mit den global verfügbaren Parametern der Klasse.
         /// </summary>
         /// <return>Flaechentraegheit des Kastenprofils</return>
@@ -74,19 +85,36 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Paramnetern wird die Mantelflaeche eines Kastenprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public double Mantelflaeche()
+        public  double Mantelflaeche()
         {
-            throw new NotImplementedException();
+            double eMantelflaeche = 0;
+
+            eMantelflaeche += 2 * GetBreite1() * GetLaenge();
+            eMantelflaeche += 2 * GetHoehe1() * GetLaenge();
+
+            return eMantelflaeche;
+
         }
 
         /// <summary>
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kastenprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public double GetOberflaeche()
+        public  double GetOberflaeche()
         {
-            throw new NotImplementedException();
+            double eOberflaeche = 0;
+
+            eOberflaeche += 2 * GetFlaecheninhalt();
+            eOberflaeche += 2 * GetBreite1() * GetLaenge();
+            eOberflaeche += 2 * GetHoehe1() * GetLaenge();
+            eOberflaeche += 2 * GetBreite2() * GetLaenge();
+            eOberflaeche += 2 * GetHoehe2() * GetLaenge();
+
+            return eOberflaeche;
         }
+
+        
+
 
         /////////////////////////////////////////////////////////////////////////////
         /// GET and SET
