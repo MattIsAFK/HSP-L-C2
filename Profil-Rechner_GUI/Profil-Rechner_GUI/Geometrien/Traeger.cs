@@ -51,7 +51,7 @@ namespace Profil_Rechner_GUI.Geometrien
 
         public override double GetFlaecheninhalt()
         {
-            throw new NotImplementedException();
+            return (GetHoehe1() * GetBreite1() - GetHoehe2() * (2 * GetBreite2() ) );
         }
 
         /// <summary>
