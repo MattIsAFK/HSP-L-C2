@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TreeView Grid.Row="0" Grid.Column="0" x:Name="trvProfil" SelectedItemChanged="trvProfil_SelectedItemChanged">
+            <TreeView Grid.Row="0" Grid.Column="0" x:Name="trvProfil" SelectedItemChanged="trvProfil_SelectedItemChanged" Margin="0,0,0,109">
                 <TreeViewItem Header="Eckicke Profile" IsHitTestVisible="True" Focusable="False">
                     <TreeViewItem x:Name ="itmRechteck" Header="Rechteck"/>
                     <TreeViewItem x:Name ="itmSechseck" Header="Sechseck"/>
@@ -46,13 +46,21 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                <Rectangle HorizontalAlignment="Left" Height="75" Margin="0,109,0,0" Stroke="Black" VerticalAlignment="Top" Width="429" Grid.Row="1" Fill="#FF9A9A9B"/>
+
                 <Grid Grid.Row="1" Grid.Column="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                     
+                       
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -60,32 +68,56 @@
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
                         <TextBox x:Name="txt1" Margin="5" Width="100" TextChanged="txt1_TextChanged"/>
-                        <Label x:Name="lbZahl1" Margin="5">b</Label>
+                        <Label x:Name="lbZahl1" Margin="5" Content="b"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
                         <TextBox x:Name="txt2" Margin="5" Width="100"/>
-                        <Label x:Name="lbZahl2" Margin="5">h</Label>
+                        <Label x:Name="lbZahl2" Margin="5" Content="h"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
                         <TextBox x:Name="txt3" Margin="5" Width="100"/>
-                        <Label x:Name="lbZahl3" Margin="5">B</Label>
+                        <Label x:Name="lbZahl3" Margin="5" Content="B"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                         <TextBox x:Name="txt4" Margin="5" Width="100"/>
-                        <Label x:Name="lbZahl4" Margin="5">H</Label>
+                        <Label x:Name="lbZahl4" Margin="5" Content="H"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" Grid.Row="4  " Grid.Column="0">
+
                         <TextBox x:Name="txtVol" Margin="5" Width="100"/>
-                        <Label x:Name="lbVol" Margin="5">Vol</Label>
+                        <Label x:Name="lbVol" Margin="5" Content="Volumen"/>
                     </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="5  " Grid.Column="0">
+
+                        <TextBox x:Name="txtObf" Margin="5" Width="100"/>
+                        <Label x:Name="lbObf" Margin="5" Content="Oberfläche"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+
+                        <TextBox x:Name="txtTrgWx" Margin="5" Width="100"/>
+                        <Label x:Name="lbTrgWx" Margin="5" Content="Trägheitsmoment Wx"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+
+                        <TextBox x:Name="txtTrgIx" Margin="5" Width="100"/>
+                        <Label x:Name="lbTrgIx" Margin="5" Content="Trägheitsmoment Ix"/>
+                    </StackPanel>
+
+
+
 
                     <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
                         <TextBox x:Name="txtLäng" Margin="5" Width="100"/>
-                        <Label x:Name="lbLänge" Margin="5">Läng</Label>
+                        <Label x:Name="lbLänge" Margin="5" Content="Länge"/>
                     </StackPanel>
+
+
 
                 </Grid>
 
