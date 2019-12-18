@@ -54,20 +54,10 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
-        /// </summary>
-        /// <returns>Oberflaeche</returns>
-        public double GetOberflaeche()
-        {
-
-            double eOberflaeche = 2 * Math.PI * GetRadius() * (GetRadius() + GetLaenge());
-            return eOberflaeche;
-        }
-        /// <summary>
         /// Aus den gegebenen Parametern wird die Mantelflaeche eines Kreisprofils berechnet.
         /// </summary>
         /// <returns>Mantelflache</returns>
-        public double GetMantelflaeche()
+        public override double GetMantelflaeche()
         {
 
             double eMantelflaeche = 2 * Math.PI * GetRadius() * GetLaenge();
