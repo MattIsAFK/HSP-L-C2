@@ -28,7 +28,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <param name="pBreite2"></param>
         /// <param name="pHoehe2"></param> 
 
-        public Kasten(double pBreite1, double pHoehe1) : this(pBreite1, pHoehe1, pBreite2, pHoehe2, 0) { }
+        public Kasten(double pBreite1, double pHoehe1, double pBreite2, double pHoehe2) : this(pBreite1, pHoehe1, pBreite2, pHoehe2, 0) { }
 
         /// <summary>
         /// Erzeugt einen neuen Kasten mit den jeweiligen Maßen
@@ -55,7 +55,9 @@ namespace Profil_Rechner_GUI.Geometrien
 
         public override double GetFlaecheninhalt()
         {
-            return gethoehe
+
+            return (GetHoehe1() *  )
+
 
             //throw new NotImplementedException();
         }
@@ -66,6 +68,15 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <return>Flaechentraegheit des Kastenprofils</return>
 
         public override double[] GetFlaechenTraegheit()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Aus den gegebenen Paramnetern wird die Mantelflaeche eines Kastenprofils berechnet.
+        /// </summary>
+        /// <returns>Oberflaeche</returns>
+        public double Mantelflaeche()
         {
             throw new NotImplementedException();
         }
