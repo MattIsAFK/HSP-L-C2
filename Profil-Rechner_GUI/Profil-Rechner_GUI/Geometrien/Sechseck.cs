@@ -33,7 +33,6 @@ namespace Profil_Rechner_GUI.Geometrien
         public Sechseck(double pBreite, double pLaenge) : base(pLaenge)
         {
             this.SetBreite(pBreite);
-            this.SetLaenge(pLaenge);
         }
 
 
