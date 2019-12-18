@@ -7,8 +7,9 @@ namespace Profil_Rechner_GUI
 {
     public partial class MainWindow
     {
-        private Geometrie _Geo;
-                
+        private Geometrie _Geo = null;
+        private CatiaConnection cc = new CatiaConnection();
+
 
         private static double SafeCast(string text)
         {
@@ -326,7 +327,6 @@ namespace Profil_Rechner_GUI
 
                             // Ausgabe
                             txtVol.Text = Rechnungen.fKasten(strZahl1, strZahl2, strZahl3, strZahl4, strZahl5).ToString("#.###");
-
                             */
 
                             //Klasse Kasten existiert noch nicht
@@ -361,7 +361,6 @@ namespace Profil_Rechner_GUI
                             txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
                             */
 
-                           //Klasse Dreieck existiert noch nicht 
                            Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
                            
 
@@ -392,7 +391,6 @@ namespace Profil_Rechner_GUI
                             break;
                         }
                     default: return;
- 
                 }
                 // throw new ConsistencyException("Was für ein Blödsinn");
 
@@ -419,7 +417,6 @@ namespace Profil_Rechner_GUI
                 MessageBox.Show(ex.Message, "Die Entwickler waren zu faul", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
             bnCatia.IsEnabled = true;
         }
 
@@ -436,6 +433,14 @@ namespace Profil_Rechner_GUI
 
         private void bnCatia_Click(object sender, RoutedEventArgs e)
         {
+
+            if (!(cc.LaeuftCATIA())) cc.VerbindeCATIA();
+
+            cc.PrepareCATIA();
+
+            
+
+            /*
             BalkenInCatia objBalkeninCatia = new BalkenInCatia();   // Objekt der class BalkeninCatia
 
             if (!objBalkeninCatia.CATIAläuft())
@@ -491,7 +496,12 @@ namespace Profil_Rechner_GUI
                             break;
                         }
                 }
-            }
+            }*/
+        }
+
+        protected ref Geometrie GetGeo()
+        {
+            return ref _Geo;
         }
 
         internal Geometrie Geo { get => _Geo; set => _Geo = value; }

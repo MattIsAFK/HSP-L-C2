@@ -74,11 +74,6 @@ namespace Profil_Rechner_GUI.Geometrien
             return 6 * GetBreite() * GetLaenge();
         }
 
-        public void SetBreite(double pBreite)
-        {
-            throw new NotImplementedException();
-        }
-
 
         /////////////////////////////////////////////////////////////////////////////
         /// GET and SET
