@@ -22,16 +22,17 @@ namespace Profil_Rechner_GUI
             _ProfilSkizze = null;
             
             //Nur zu Testzwecken, auf Dauer zu entfernen/auszulagern
-            this.LaeuftCATIA(); 
+            this.VerbindeCATIA();
+            this.LaeuftCATIA();
         }
 
         public bool LaeuftCATIA()
         {
             try
             {
-                object catiaObject = System.Runtime.InteropServices.Marshal.GetActiveObject("CATIA.Application");
-                CatiaApplication = (INFITF.Application)catiaObject;
-                MessageBox.Show( System.Runtime.InteropServices.Marshal.IsComObject(CatiaApplication).ToString(), "Test", MessageBoxButton.OK, MessageBoxImage.Information);
+                //Kapselung in MEssage Box nur zu Testzwecken
+                MessageBox.Show( System.Runtime.InteropServices.Marshal.IsComObject(CatiaApplication).ToString(), "CATIA Verbunden", MessageBoxButton.OK, MessageBoxImage.Information);
+                
                 return true;
             }
             catch (System.Runtime.InteropServices.COMException e)
@@ -44,6 +45,20 @@ namespace Profil_Rechner_GUI
                 MessageBox.Show("Ein unerwarteter Fehler ist aufgetreten", "Fatality", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
+        }
+
+        public void VerbindeCATIA()
+        {
+            try
+            {
+                object catiaObject = System.Runtime.InteropServices.Marshal.GetActiveObject("CATIA.Application");
+                CatiaApplication = (INFITF.Application)catiaObject;
+            }
+            catch (System.Runtime.InteropServices.COMException e)
+            {
+                MessageBox.Show("Keine Instanz von CATIA gefunden." + Environment.NewLine + e.Message, "Verbindungsfehler", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
         }
 
 
