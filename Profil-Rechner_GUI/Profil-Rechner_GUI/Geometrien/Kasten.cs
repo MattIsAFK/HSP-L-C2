@@ -86,7 +86,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Paramnetern wird die Mantelflaeche eines Kastenprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public  double Mantelflaeche()
+        public override double GetMantelflaeche()
         {
             double eMantelflaeche = 0;
 
@@ -101,13 +101,12 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kastenprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public  double GetOberflaeche()
+        public  override double GetOberflaeche()
         {
             double eOberflaeche = 0;
 
             eOberflaeche += 2 * GetFlaecheninhalt();
-            eOberflaeche += 2 * GetBreite1() * GetLaenge();
-            eOberflaeche += 2 * GetHoehe1() * GetLaenge();
+            eOberflaeche += GetMantelflaeche();
             eOberflaeche += 2 * GetBreite2() * GetLaenge();
             eOberflaeche += 2 * GetHoehe2() * GetLaenge();
 
