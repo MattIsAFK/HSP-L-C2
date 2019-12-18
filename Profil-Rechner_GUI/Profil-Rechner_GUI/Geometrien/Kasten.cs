@@ -149,7 +149,7 @@ namespace Profil_Rechner_GUI.Geometrien
         {
             if (!(pBreite2 >= 0)) throw new ArgumentOutOfRangeException("'b' muss einen positiven Wert annehmen");
 
-            if (pBreite2 > GetBreite1()) zHoehe2 = pBreite2;
+            if (pBreite2 > GetBreite1()) zBreite2 = pBreite2;
             else throw new ConsistencyException("'b'muss einen kleineren Wert als 'B' annehmen");
         }   
 
