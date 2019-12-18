@@ -55,13 +55,14 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Berechnet die Flaechentraegheit des Traegerprofils mit den global verfügbaren Parametern der Klasse.
+        /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
         /// </summary>
-        /// <return>Flaechentraegheit des Traegerprofils</return>
-
-        public override double[] GetFlaechenTraegheit()
+        /// <returns>Flaechenträgheit Ix</returns>
+        public override double GetFlaechenTraegheit_Ix()
         {
-            throw new NotImplementedException();
+            double eFlaechenTraegheit_Ix = (((GetBreite1() * Math.Pow(GetHoehe1(), 3)) - ((2 * GetBreite2()) * Math.Pow(GetHoehe2(), 3))) / 12);
+
+            return eFlaechenTraegheit_Ix;
         }
 
         /// <summary>
@@ -70,7 +71,13 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <returns>Oberflaeche</returns>
         public double Mantelflaeche()
         {
-            throw new NotImplementedException();
+            double eMantelflaeche = 0;
+
+            eMantelflaeche += 2 * GetBreite1() * GetLaenge();
+            eMantelflaeche += 2 * GetHoehe1() * GetLaenge();
+            eMantelflaeche += 4 * GetBreite2() * GetLaenge();
+
+            return eMantelflaeche;
         }
 
         /// <summary>
@@ -79,7 +86,14 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <returns>Oberflaeche</returns>
         public double GetOberflaeche()
         {
-            throw new NotImplementedException();
+            double eOberflaeche = 0;
+
+            eOberflaeche += 2 * GetFlaecheninhalt();
+            eOberflaeche += 2 * GetBreite1() * GetLaenge();
+            eOberflaeche += 2 * GetHoehe1() * GetLaenge();
+            eOberflaeche += 4 * GetBreite2() * GetLaenge();
+
+            return eOberflaeche;
         }
 
 
