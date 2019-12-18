@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CATIA\CatiaConnection.cs" />
+    <Compile Include="ConsistencyException.cs" />
     <Compile Include="Geometrie.cs" />
     <Compile Include="Geometrien\Kreis.cs" />
     <Compile Include="Geometrien\Rechteck.cs" />

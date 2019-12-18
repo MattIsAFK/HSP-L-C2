@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Profil_Rechner_GUI.Geometrien;
 
@@ -8,26 +9,11 @@ namespace Profil_Rechner_GUI
     {
         private Geometrie _Geo = null;
 
-        internal Geometrie Geo { get => _Geo; set => _Geo = value; }
 
         private static double SafeCast(string text)
         {
-            if (!double.TryParse(text, out var result)) return 0;
+            if (!double.TryParse(text, out double result)) return 0;
             return result;
-        }
-
-        private void EnableCalculation()
-        {
-            TreeViewItem selectedItem = (TreeViewItem)trvProfil.SelectedItem;
-
-            // **Überschrift einstellen
-            lbProfil.Visibility = Visibility.Visible;
-            lbProfil.Content = selectedItem.Header;
-
-            bnRechne.IsEnabled = true;
-            bnRechne.IsDefault = true;
-
-            bnCatia.IsEnabled = false;
         }
 
         /// <summary>
@@ -65,10 +51,7 @@ namespace Profil_Rechner_GUI
 
         public void trvProfil_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var selectedItem = (TreeViewItem)trvProfil.SelectedItem;
-
-
-
+            TreeViewItem selectedItem = (TreeViewItem)trvProfil.SelectedItem;
 
             switch (selectedItem.Name)
             {
@@ -102,15 +85,6 @@ namespace Profil_Rechner_GUI
                         txt2.ToolTip = "Wert für 'b' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -144,15 +118,6 @@ namespace Profil_Rechner_GUI
                         txt2.ToolTip = "Wert für 'h' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -195,15 +160,6 @@ namespace Profil_Rechner_GUI
                         txt4.ToolTip = "Wert für 'h' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge des Profils eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -235,15 +191,6 @@ namespace Profil_Rechner_GUI
                         txt1.ToolTip = "Wert für 'R' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
 
@@ -287,15 +234,6 @@ namespace Profil_Rechner_GUI
                         txt4.ToolTip = "Wert für 'h' eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
                 case "itmKreis":
@@ -325,15 +263,6 @@ namespace Profil_Rechner_GUI
                         txt1.ToolTip = "Wert für R (Radius) eingeben";
                         txtLäng.ToolTip = "Wert für die Länge eingeben";
 
-                        // ***Leeren der Textboxen***
-                        txt1.Clear();
-                        txt2.Clear();
-                        txt3.Clear();
-                        txt4.Clear();
-                        txtLäng.Clear();
-                        txtVol.Clear();
-
-                        EnableCalculation();
                         break;
                     }
                 default:
@@ -344,88 +273,144 @@ namespace Profil_Rechner_GUI
                         bnCatia.IsEnabled = false;
 
                         MessageBox.Show("Dieses Profil wurde noch nicht programmiert.", "Work in Progress", MessageBoxButton.OK, MessageBoxImage.Error);
-                        break;
+                        return;
                     }
             }
+            // ***Leeren der Textboxen***
+            txt1.Clear();
+            txt2.Clear();
+            txt3.Clear();
+            txt4.Clear();
+            txtLäng.Clear();
+            txtVol.Clear();
+
+            // **Überschrift einstellen
+            lbProfil.Visibility = Visibility.Visible;
+            lbProfil.Content = ((TreeViewItem)trvProfil.SelectedItem).Header;
+
+            // **Button "Berechnen" aktiv und default setzen
+            bnRechne.IsEnabled = true;
+            bnRechne.IsDefault = true;
+
+            // **Buton CATIA deaktivieren
+            bnCatia.IsEnabled = false;
         }
 
         private void bnRechne_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = (TreeViewItem)trvProfil.SelectedItem;
 
-            // Deklaration der Variabeln
+            /* Deklaration der Variabeln
             string strZahl1;
             string strZahl2;
             string strZahl3;
             string strZahl4;
             string strZahl5;
+            */
 
             txtVol.Visibility = Visibility.Visible; // Textbox vom Volumen sichtbar machen
 
             // Starten der Berechnungen
-
-            switch (selectedItem.Name)
+            try
             {
-                case "itmKasten":
-                    {
-                        strZahl1 = txt1.Text; // B
-                        strZahl2 = txt2.Text; // H
-                        strZahl3 = txt3.Text; // b
-                        strZahl4 = txt4.Text; // h
-                        strZahl5 = txtLäng.Text; // Höhe
+                switch (selectedItem.Name)
+                {
+                    case "itmKasten":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // B
+                            strZahl2 = txt2.Text; // H
+                            strZahl3 = txt3.Text; // b
+                            strZahl4 = txt4.Text; // h
+                            strZahl5 = txtLäng.Text; // Höhe
 
-                        // Ausgabe
-                        txtVol.Text = Rechnungen.fKasten(strZahl1, strZahl2, strZahl3, strZahl4, strZahl5).ToString("#.###");
-                        break;
-                    }
+                            // Ausgabe
+                            txtVol.Text = Rechnungen.fKasten(strZahl1, strZahl2, strZahl3, strZahl4, strZahl5).ToString("#.###");
+                            */
 
-                case "itmRechteck":
-                    {
-                        
+                            //Klasse Kasten existiert noch nicht
+                            //Geo = new Kasten(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text),Convert.ToDouble(txt3.Text),Convert.ToDouble(txt4.Text), Convert.ToDouble(txtLäng.Text));
 
-                        strZahl1 = txt1.Text; // a
-                        strZahl2 = txt2.Text; // b
-                        strZahl3 = txtLäng.Text; // Höhe
+                            break;
+                        }
 
-                        double a = SafeCast(strZahl1);
-                        double b = SafeCast(strZahl2);
-                        double l = SafeCast(strZahl3);
+                    case "itmRechteck":
+                        {
 
-                        Geo = new Rechteck(a,b,l);
+                            /*
+                            strZahl1 = txt1.Text; // a
+                            strZahl2 = txt2.Text; // b
+                            strZahl3 = txtLäng.Text; // Höhe
 
-                        // Ausgabe
-                        //txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
 
-                        txtVol.Text = GetGeo().GetVolumen().ToString();
 
-                        break;
-                    }
-                case "itmDreieck":
-                    {
-                        strZahl1 = txt1.Text; // b
-                        strZahl2 = txt2.Text; // h
-                        strZahl3 = txtLäng.Text; // Höhe
+                            // Ausgabe
+                            txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+                            */
+                            Geo = new Rechteck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
+                    case "itmDreieck":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // b
+                            strZahl2 = txt2.Text; // h
+                            strZahl3 = txtLäng.Text; // Höhe
 
-                        txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
-                        break;
-                    }
-                case "itmKreis":
-                    {
-                        strZahl1 = txt1.Text; // r
-                        strZahl2 = txtLäng.Text; // Höhe
+                            txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
+                            */
 
-                        txtVol.Text = Rechnungen.fKreis(strZahl1, strZahl2).ToString("#.###");
-                        break;
-                    }
-                case "itmSecheck":
-                    {
-                        strZahl1 = txt1.Text; // R
-                        strZahl2 = txtLäng.Text; // Höhe
+                           //Klasse Dreieck existiert noch nicht 
+                           Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
+                           
 
-                        txtVol.Text = Rechnungen.fSechseck(strZahl1, strZahl2).ToString("#.###");
-                        break;
-                    }
+                            break;
+                        }
+                    case "itmKreis":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // r
+                            strZahl2 = txtLäng.Text; // Höhe
+
+                            txtVol.Text = Rechnungen.fKreis(strZahl1, strZahl2).ToString("#.###");
+                            */
+
+                            Geo = new Kreis(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
+                    case "itmSecheck":
+                        {
+                            /*
+                            strZahl1 = txt1.Text; // R
+                            strZahl2 = txtLäng.Text; // Höhe
+
+                            txtVol.Text = Rechnungen.fSechseck(strZahl1, strZahl2).ToString("#.###");
+                            */
+
+                            Geo = new Sechseck(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
+                    default: return;
+                    txtVol.Text = Geo.GetVolumen().ToString();
+                }
+                // throw new ConsistencyException("Was für ein Blödsinn");
             }
+            catch(FormatException ex)
+            {
+                MessageBox.Show("Die Eingabe muss nummerisch sein."+Environment.NewLine+ex.Message,"Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show( ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            catch(ConsistencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             bnCatia.IsEnabled = true;
         }
 
@@ -507,5 +492,7 @@ namespace Profil_Rechner_GUI
         {
             return ref _Geo;
         }
+
+        internal Geometrie Geo { get => _Geo; set => _Geo = value; }
     }
 }
