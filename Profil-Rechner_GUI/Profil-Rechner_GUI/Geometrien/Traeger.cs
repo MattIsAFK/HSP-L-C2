@@ -80,7 +80,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Paramnetern wird die Mantelflaeche eines Traegerprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public double Mantelflaeche()
+        public override double GetMantelflaeche()
         {
             double eMantelflaeche = 0;
 
@@ -89,22 +89,6 @@ namespace Profil_Rechner_GUI.Geometrien
             eMantelflaeche += 4 * GetBreite2() * GetLaenge();
 
             return eMantelflaeche;
-        }
-
-        /// <summary>
-        /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Traegerprofils berechnet.
-        /// </summary>
-        /// <returns>Oberflaeche</returns>
-        public double GetOberflaeche()
-        {
-            double eOberflaeche = 0;
-
-            eOberflaeche += 2 * GetFlaecheninhalt();
-            eOberflaeche += 2 * GetBreite1() * GetLaenge();
-            eOberflaeche += 2 * GetHoehe1() * GetLaenge();
-            eOberflaeche += 4 * GetBreite2() * GetLaenge();
-
-            return eOberflaeche;
         }
 
         /////////////////////////////////////////////////////////////////////////////
