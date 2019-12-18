@@ -70,7 +70,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Ix zurück.
         /// </summary>
         /// <returns>Flaechenträgheit I x</returns>
-        public double GetFlaechenTraegheit_Ix()
+        public override double GetFlaechenTraegheit_Ix()
         {
             double eFlaechenTraegheit_Ix = ((GetBreite() * Math.Pow(GetHoehe(), 3)) / 12);
 
@@ -80,7 +80,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Gibt das axiale Flächenträgheitsmeoment zweiten Grades: Iy zurück.
         /// </summary>
         /// <returns>Flaechenträgheit I y</returns>
-        public double GetFlaechenTraegheit_Iy()
+        public override double GetFlaechenTraegheit_Iy()
         {
             double eFlaechenTraegheit_Iy = ((GetHoehe() * Math.Pow(GetBreite(), 3)) / 12);
 
@@ -90,7 +90,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Berechnet das axiale Biegewiderstandsmoment Wx aus den gegebenen, globalen, Feldwerten.
         /// </summary>
         /// <returns>Biegewiderstandsmoment Wx</returns>
-        public double GetBiegeWiderstandsMoment_Wx()
+        public override double GetBiegeWiderstandsMoment_Wx()
         {
             double eBiegeWiderStand_Wx = ((GetBreite()*Math.Pow(GetHoehe(),2))/6);
             return eBiegeWiderStand_Wx;
@@ -99,20 +99,10 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Berechnet das axiale Biegewiderstandsmoment Wy aus den gegebenen, globalen, Feldwerten.
         /// </summary>
         /// <returns>Biegewiderstandsmoment Wy</returns>
-        public double GetBiegeWiderstandsMoment_Wy()
+        public override double GetBiegeWiderstandsMoment_Wy()
         {
             double eBiegeWiderStand_Wy = ((GetHoehe() * Math.Pow(GetBreite(), 2)) / 6);
             return eBiegeWiderStand_Wy;
-        }
-        /// <summary>
-        /// Aus den gegeben Parametern wird das Volumen berechnet.
-        /// 
-        /// </summary>
-        /// <returns>Volumen</returns>
-        public override double GetVolumen()
-        {
-            double eVolumen = GetBreite() * GetLaenge() * GetHoehe();
-            return eVolumen;
         }
 
         /// <summary>

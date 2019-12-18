@@ -394,6 +394,9 @@ namespace Profil_Rechner_GUI
                     txtVol.Text = Geo.GetVolumen().ToString();
                 }
                 // throw new ConsistencyException("Was für ein Blödsinn");
+
+                //Ausgabe des Volumens
+                txtVol.Text = Geo.GetVolumen().ToString();
             }
             catch(FormatException ex)
             {
@@ -410,7 +413,11 @@ namespace Profil_Rechner_GUI
                 MessageBox.Show(ex.Message, "Falsche Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            catch(NotImplementedException ex)
+            {
+                MessageBox.Show(ex.Message, "Die Entwickler waren zu faul", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             bnCatia.IsEnabled = true;
         }
 
