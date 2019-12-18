@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MECMOD;
 
 namespace Profil_Rechner_GUI.Geometrien
 {
@@ -136,7 +137,18 @@ namespace Profil_Rechner_GUI.Geometrien
             return eOberflaeche;
         }
 
+        /////////////////////////////////////////////////////////////////////////////
+        /// CATIA-Part
 
+
+        /// <summary>
+        /// Erzeuge ein Rechteckprofil in CATIA
+        /// </summary>
+
+        internal void ErzeugeProfilRechteck(ref Sketch sketch) 
+        {
+            throw new NotImplementedException();
+        }
 
         /////////////////////////////////////////////////////////////////////////////
         /// GET and SET
