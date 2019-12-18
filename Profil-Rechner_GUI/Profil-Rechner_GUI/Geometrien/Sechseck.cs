@@ -50,7 +50,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// <summary>
         /// Berechnet die Flaechentraegheit des Sechseckprofils mit den global verfügbaren Parametern der Klasse.
         /// </summary>
-        /// <return>Flaechentraegheit desSechseckprofils</return>
+        /// <return>Flaechentraegheit des Sechseckprofils</return>
 
         public override double[] GetFlaechenTraegheit()
         {
@@ -66,7 +66,7 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
+        /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Sechseckrofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
         public double GetOberflaeche()
