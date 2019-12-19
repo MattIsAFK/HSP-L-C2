@@ -75,6 +75,10 @@ namespace Profil_Rechner_GUI.Geometrien
             return ((GetHoehe() * Math.Pow(GetBreite(), 3)) / 48);
         }
 
+        public override double GetBiegeWiderstandsMoment_Wx()
+        {
+            return GetBreite()*Math.Pow(GetHoehe(),2);
+        }
 
         /////////////////////////////////////////////////////////////////////////////
         /// CATIA-Part
