@@ -78,8 +78,8 @@ namespace Profil_Rechner_GUI
                         lbVol.Visibility = Visibility.Visible;
 
                         // *Content der Label*
-                        lbZahl1.Content = "h";
-                        lbZahl2.Content = "b";
+                        lbZahl1.Content = "h [mm]";
+                        lbZahl2.Content = "b [mm]";
 
                         // *Tooltips der Textboxen*
                         txt1.ToolTip = "Wert für 'h' eingeben";
@@ -111,8 +111,8 @@ namespace Profil_Rechner_GUI
                         lbVol.Visibility = Visibility.Visible;
 
                         // *Content der Label*
-                        lbZahl1.Content = "b";
-                        lbZahl2.Content = "h";
+                        lbZahl1.Content = "b [mm]";
+                        lbZahl2.Content = "h [mm]";
 
                         // *Tooltips der Textboxen*
                         txt1.ToolTip = "Wert für 'b' eingeben";
@@ -149,10 +149,10 @@ namespace Profil_Rechner_GUI
                         lbVol.Visibility = Visibility.Visible;
 
                         // *Content der Label*
-                        lbZahl1.Content = "B";
-                        lbZahl2.Content = "H";
-                        lbZahl3.Content = "b";
-                        lbZahl4.Content = "h";
+                        lbZahl1.Content = "B [mm]";
+                        lbZahl2.Content = "H [mm]";
+                        lbZahl3.Content = "b [mm]";
+                        lbZahl4.Content = "h [mm]";
 
                         // *Tooltips der Textboxen*
                         txt1.ToolTip = "Wert für 'B' eingeben";
@@ -185,8 +185,8 @@ namespace Profil_Rechner_GUI
                         lbVol.Visibility = Visibility.Visible;
 
                         // *Content der Label*
-                        lbZahl1.Content = "R";
-                        lbLänge.Content = "Länge";
+                        lbZahl1.Content = "R [mm]";
+                        lbLänge.Content = "Länge [mm]";
 
                         // *Tooltips der Textboxen*
                         txt1.ToolTip = "Wert für 'R' eingeben";
@@ -222,11 +222,11 @@ namespace Profil_Rechner_GUI
                         lbVol.Visibility = Visibility.Visible;
 
                         // *Content der Label*
-                        lbZahl1.Content = "B";
-                        lbZahl2.Content = "H";
-                        lbZahl3.Content = "b";
-                        lbZahl4.Content = "h";
-                        lbLänge.Content = "Länge";
+                        lbZahl1.Content = "B [mm]";
+                        lbZahl2.Content = "H [mm]";
+                        lbZahl3.Content = "b [mm]";
+                        lbZahl4.Content = "h [mm]";
+                        lbLänge.Content = "Länge [mm]";
 
                         // *Tooltips der Textboxen*
                         txt1.ToolTip = "Wert für 'B' eingeben";
@@ -258,7 +258,7 @@ namespace Profil_Rechner_GUI
                         lbVol.Visibility = Visibility.Visible;
 
                         // *Content der Label*
-                        lbZahl1.Content = "R";
+                        lbZahl1.Content = "R [mm]";
 
                         // *Tooltips der Textboxen*
                         txt1.ToolTip = "Wert für R (Radius) eingeben";
@@ -336,7 +336,6 @@ namespace Profil_Rechner_GUI
                             txtVol.Text = Rechnungen.fKasten(strZahl1, strZahl2, strZahl3, strZahl4, strZahl5).ToString("#.###");
                             */
 
-                            //Klasse Kasten existiert noch nicht
                             Geo = new Kasten(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text),Convert.ToDouble(txt3.Text),Convert.ToDouble(txt4.Text), Convert.ToDouble(txtLäng.Text));
                             break;
                     }
@@ -355,7 +354,6 @@ namespace Profil_Rechner_GUI
                             txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
                             */
                             Geo = new Rechteck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
-                            txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
                             break;
                         }
                     case "itmDreieck":
@@ -382,8 +380,6 @@ namespace Profil_Rechner_GUI
 
                             Geo = new Kreis(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
 
-                            txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
-
                             break;
                         }
                     case "itmSechseck":
@@ -396,17 +392,17 @@ namespace Profil_Rechner_GUI
                             */
 
                             Geo = new Sechseck(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
-                            txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
+                            
                             break;
                         }
                     default: return;
                 }
-                // throw new ConsistencyException("Was für ein Blödsinn");
 
-                //Ausgabe des Volumens
+                //Ausgabe der Berechnungsergebnisse
                 txtVol.Text = Geo.GetVolumen().ToString("F"); 
                 txtObf.Text = Geo.GetOberflaeche().ToString("F");
                 txtTrgIx.Text = Geo.GetFlaechenTraegheit_Ix().ToString("F");
+                txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
             }
             catch(FormatException ex)
             {
