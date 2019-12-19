@@ -73,6 +73,24 @@ namespace Profil_Rechner_GUI.Geometrien
             return 6 * GetBreite();
         }
 
+        /// <summary>
+        /// Berechnet das Flächenträgheitsmoment aus den eigenen Feldwerten
+        /// </summary>
+        /// <returns>Flächenträgheit Ix des Sechseckprofils</returns>
+        public override double GetFlaechenTraegheit_Ix()
+        {
+            return 0.5413 * Math.Pow(GetBreite(),4);
+        }
+
+        /// <summary>
+        /// Berechnet das Biegewiderstandsmoemnt aus den Feldwerten
+        /// </summary>
+        /// <returns>Biegewiderstandsmoment Wx des Sechseckprofils</returns>
+        public override double GetBiegeWiderstandsMoment_Wx()
+        {
+            return 0.625 * Math.Pow(GetBreite(),3);
+        }
+
 
         /////////////////////////////////////////////////////////////////////////////
         /// CATIA-Part
