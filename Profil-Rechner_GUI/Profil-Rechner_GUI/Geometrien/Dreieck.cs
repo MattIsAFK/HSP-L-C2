@@ -43,6 +43,11 @@ namespace Profil_Rechner_GUI.Geometrien
             return (GetHoehe() * GetBreite())/2;
         }
 
+        public override double GetMantelflaeche()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Berechnet die Flaechentraegheit des Dreieckprofils mit den global verfügbaren Parametern der Klasse.
         /// </summary>
