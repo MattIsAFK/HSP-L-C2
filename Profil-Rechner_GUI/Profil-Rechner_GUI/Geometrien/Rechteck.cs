@@ -143,7 +143,26 @@ namespace Profil_Rechner_GUI.Geometrien
 
         internal void ErzeugeProfilRechteck(ref Sketch sketch) 
         {
-            throw new NotImplementedException();
+            Factory2D factory = sketch.OpenEdition();
+            /// <summary>
+            /// Erzeuge die Punkte des Rechteckprofils in CATIA
+            /// </summary>
+            factory.CreatePoint(0, 0);
+            factory.CreatePoint(0, GetHoehe());
+            factory.CreatePoint(0, GetBreite());
+            factory.CreatePoint(GetHoehe(), GetBreite());
+
+            /// <summary>
+            /// Erzeuge die Linie des Rechteckprofils in CATIA
+            /// </summary>
+
+            factory.CreateLine(0, 0, 0, GetHoehe());
+            factory.CreateLine(0, 0, GetBreite(), 0) ;
+            factory.CreateLine(0, GetHoehe(), GetBreite(), GetHoehe());
+            factory.CreateLine(GetBreite(), GetHoehe(), GetBreite(), 0);
+
+            
+            //hrow new NotImplementedException();
         }
 
         /////////////////////////////////////////////////////////////////////////////

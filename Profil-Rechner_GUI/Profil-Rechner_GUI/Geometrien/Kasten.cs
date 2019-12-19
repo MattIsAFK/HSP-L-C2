@@ -136,7 +136,13 @@ namespace Profil_Rechner_GUI.Geometrien
 
         internal void ErzeugeProfilKasten(ref Sketch sketch)
         {
-            throw new NotImplementedException();
+            /* sketch.Factory2D.()
+            sketch.Factory2D.CreatePoint
+            sketch.Factory2D.CreatePoint
+            sketch.Factory2D.CreatePoint
+            */
+
+            new NotImplementedException();
         }
 
 
