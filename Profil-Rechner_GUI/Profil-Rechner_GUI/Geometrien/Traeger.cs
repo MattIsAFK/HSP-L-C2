@@ -77,6 +77,17 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
+        /// Berechnet das axiale Biegewiderstandsmoment Wx aus den gegebenen, globalen Feldwerten.
+        /// </summary>
+        /// <returns>Biegewiderstandsmoment Wx</returns>
+        public override double GetBiegeWiderstandsMoment_Wx()
+        {
+            double eBiegeWiderStand_Wx = (((GetBreite1() * Math.Pow(GetHoehe1(), 3)) - (( 2 * GetBreite2()) * Math.Pow(GetHoehe2(), 3))) / (6 * GetHoehe1()));
+
+            return eBiegeWiderStand_Wx;
+        }
+
+        /// <summary>
         /// Aus den gegebenen Paramnetern wird die Mantelflaeche eines Traegerprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
