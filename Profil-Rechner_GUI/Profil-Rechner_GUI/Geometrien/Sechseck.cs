@@ -41,7 +41,6 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Berechnet den Flaecheninhalt des Sechsecks mit den global verfuegbaren Parametern der Klasse.
         /// </summary>
         /// <return>Flaecheninhalt des Sechseckprofils</return>
-
         public override double GetFlaecheninhalt()
         {
             return (3 / 2) * GetBreite() * GetBreite() * Math.Sqrt(3);
@@ -66,12 +65,30 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Sechseckrofils berechnet.
+        /// Aus den gegebenen Feldwerten wird die Mantelflaeche eines Sechseckrofils berechnet.
         /// </summary>
-        /// <returns>Oberflaeche</returns>
-        public double GetOberflaeche()
+        /// <returns>Mantelfläche des Sechsecks</returns>
+        public override double GetMantelflaeche()
         {
-            return 6 * GetBreite() * GetLaenge();
+            return 6 * GetBreite();
+        }
+
+        /// <summary>
+        /// Berechnet das Flächenträgheitsmoment aus den eigenen Feldwerten
+        /// </summary>
+        /// <returns>Flächenträgheit Ix des Sechseckprofils</returns>
+        public override double GetFlaechenTraegheit_Ix()
+        {
+            return 0.5413 * Math.Pow(GetBreite(),4);
+        }
+
+        /// <summary>
+        /// Berechnet das Biegewiderstandsmoemnt aus den Feldwerten
+        /// </summary>
+        /// <returns>Biegewiderstandsmoment Wx des Sechseckprofils</returns>
+        public override double GetBiegeWiderstandsMoment_Wx()
+        {
+            return 0.625 * Math.Pow(GetBreite(),3);
         }
 
 

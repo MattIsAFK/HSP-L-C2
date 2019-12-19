@@ -86,7 +86,7 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Paramnetern wird die Mantelflaeche eines Kastenprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public  double Mantelflaeche()
+        public override double GetMantelflaeche()
         {
             double eMantelflaeche = 0;
 
@@ -101,13 +101,12 @@ namespace Profil_Rechner_GUI.Geometrien
         /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kastenprofils berechnet.
         /// </summary>
         /// <returns>Oberflaeche</returns>
-        public  double GetOberflaeche()
+        public  override double GetOberflaeche()
         {
             double eOberflaeche = 0;
 
             eOberflaeche += 2 * GetFlaecheninhalt();
-            eOberflaeche += 2 * GetBreite1() * GetLaenge();
-            eOberflaeche += 2 * GetHoehe1() * GetLaenge();
+            eOberflaeche += GetMantelflaeche();
             eOberflaeche += 2 * GetBreite2() * GetLaenge();
             eOberflaeche += 2 * GetHoehe2() * GetLaenge();
 
@@ -162,7 +161,7 @@ namespace Profil_Rechner_GUI.Geometrien
         {
             if (!(pBreite2 >= 0)) throw new ArgumentOutOfRangeException("'b' muss einen positiven Wert annehmen");
 
-            if (pBreite2 > GetBreite1()) zBreite2 = pBreite2;
+            if (pBreite2 < GetBreite1()) zBreite2 = pBreite2;
             else throw new ConsistencyException("'b'muss einen kleineren Wert als 'B' annehmen");
         }   
 
@@ -196,7 +195,7 @@ namespace Profil_Rechner_GUI.Geometrien
         {
             if (! (pHoehe2 >= 0)) throw new ArgumentOutOfRangeException("'h' muss einen positiven Wert annehmen");
 
-            if (pHoehe2 > GetHoehe1()) zHoehe2 = pHoehe2;
+            if (pHoehe2 < GetHoehe1()) zHoehe2 = pHoehe2;
             else throw new ConsistencyException("'h'muss einen kleineren Wert als 'H' annehmen");
         }
 

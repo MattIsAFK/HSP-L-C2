@@ -54,15 +54,33 @@ namespace Profil_Rechner_GUI.Geometrien
         }
 
         /// <summary>
-        /// Aus den gegebenen Paramnetern wird die Oberflaeche eines Kreisprofils berechnet.
+        /// Aus den gegeben Werten wird die Flächenträgheit des Kreisprofils berechnet.
         /// </summary>
-        /// <returns>Oberflaeche</returns>
-        public double GetOberflaeche()
+        /// <returns>Flächenträgheit des Kreises</returns>
+        public override double GetFlaechenTraegheit_Ix()
         {
-
-            double eOberflaeche = 2 * Math.PI * GetRadius() * (GetRadius() + GetLaenge());
-            return eOberflaeche;
+            return (Math.Pow(2 * GetRadius(), 4) * Math.PI) / 64; 
         }
+
+        /// <summary>
+        /// Flächenträgheit Ix undIy sind identisch beim Kreis.
+        /// </summary>
+        /// <returns>Flächenträgheit des Kreises</returns>
+        public override double GetFlaechenTraegheit_Iy()
+        {
+            return GetFlaechenTraegheit_Ix();
+        }
+
+        public override double GetBiegeWiderstandsMoment_Wx()
+        {
+            return (Math.Pow(2 * GetRadius(), 3) * Math.PI) / 32;
+        }
+
+        public override double GetBiegeWiderstandsMoment_Wy()
+        {
+            return GetBiegeWiderstandsMoment_Wx();
+        }
+
         /// <summary>
         /// Aus den gegebenen Parametern wird die Mantelflaeche eines Kreisprofils berechnet.
         /// </summary>
