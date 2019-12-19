@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Testat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" MinHeight="450" Width="800" MinWidth="640" >
+        Title="Profilrechner" Height="450" MinHeight="450" Width="800" MinWidth="640" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -109,7 +109,7 @@
                     <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
 
                         <TextBox x:Name="txtTrgIx" Margin="5" Width="100"/>
-                        <Label x:Name="lbTrgIx" Margin="0" Content="Trägheitsmoment Iy [mm^4]"/>
+                        <Label x:Name="lbTrgIx" Margin="0" Content="Trägheitsmoment Iy [mm⁴]"/>
                     </StackPanel>
 
 
