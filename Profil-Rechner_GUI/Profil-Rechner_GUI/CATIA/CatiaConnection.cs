@@ -21,9 +21,6 @@ namespace Profil_Rechner_GUI
             _PartDocument = null;
             _ProfilSkizze = null;
             
-            //Nur zu Testzwecken, auf Dauer zu entfernen/auszulagern
-            this.VerbindeCATIA();
-            this.LaeuftCATIA();
         }
 
         public bool LaeuftCATIA()
