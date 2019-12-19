@@ -313,6 +313,10 @@ namespace Profil_Rechner_GUI
             */
 
             txtVol.Visibility = Visibility.Visible; // Textbox vom Volumen sichtbar machen
+            txtObf.Visibility = Visibility.Visible;
+            txtTrgIx.Visibility = Visibility.Visible;
+            txtTrgWx.Visibility = Visibility.Visible;
+            
 
             // Starten der Berechnungen
             try
@@ -334,8 +338,7 @@ namespace Profil_Rechner_GUI
 
                             //Klasse Kasten existiert noch nicht
                             Geo = new Kasten(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text),Convert.ToDouble(txt3.Text),Convert.ToDouble(txt4.Text), Convert.ToDouble(txtLäng.Text));
-
-                        break;
+                            break;
                     }
    
                     case "itmRechteck":
@@ -352,6 +355,7 @@ namespace Profil_Rechner_GUI
                             txtVol.Text = Rechnungen.fRechteck(strZahl1, strZahl2, strZahl3).ToString("#.###");
                             */
                             Geo = new Rechteck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
+                            txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
                             break;
                         }
                     case "itmDreieck":
@@ -364,10 +368,7 @@ namespace Profil_Rechner_GUI
                             txtVol.Text = Rechnungen.fDreieck(strZahl1, strZahl2, strZahl3).ToString("#.###");
                             */
 
-                           Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
-
-                            txtTrgIx.Text = Geo.GetFlaechenTraegheit_Ix().ToString();
-
+                            Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
                             break;
                         }
                     case "itmKreis":
@@ -380,9 +381,12 @@ namespace Profil_Rechner_GUI
                             */
 
                             Geo = new Kreis(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
+
+                            txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
+
                             break;
                         }
-                    case "itmSecheck":
+                    case "itmSechseck":
                         {
                             /*
                             strZahl1 = txt1.Text; // R
@@ -392,6 +396,7 @@ namespace Profil_Rechner_GUI
                             */
 
                             Geo = new Sechseck(Convert.ToDouble(txt1.Text), Convert.ToDouble(txtLäng.Text));
+                            txtTrgWx.Text = Geo.GetBiegeWiderstandsMoment_Wx().ToString("F");
                             break;
                         }
                     default: return;
@@ -399,8 +404,9 @@ namespace Profil_Rechner_GUI
                 // throw new ConsistencyException("Was für ein Blödsinn");
 
                 //Ausgabe des Volumens
-                txtVol.Text = Geo.GetVolumen().ToString(); 
-                txtObf.Text = Geo.GetOberflaeche().ToString();
+                txtVol.Text = Geo.GetVolumen().ToString("F"); 
+                txtObf.Text = Geo.GetOberflaeche().ToString("F");
+                txtTrgIx.Text = Geo.GetFlaechenTraegheit_Ix().ToString("F");
             }
             catch(FormatException ex)
             {
@@ -434,6 +440,14 @@ namespace Profil_Rechner_GUI
         private void txt1_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtVol.Visibility = Visibility.Hidden;
+            txtObf.Visibility = Visibility.Hidden;
+            txtTrgIx.Visibility = Visibility.Hidden;
+            txtTrgWx.Visibility = Visibility.Hidden;
+        }
+
+        private void ZeigeErgebnisBereich()
+        {
+
         }
 
         private void bnCatia_Click(object sender, RoutedEventArgs e)
