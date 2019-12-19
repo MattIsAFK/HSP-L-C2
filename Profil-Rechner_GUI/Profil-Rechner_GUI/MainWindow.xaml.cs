@@ -284,6 +284,9 @@ namespace Profil_Rechner_GUI
             txt4.Clear();
             txtLäng.Clear();
             txtVol.Clear();
+            txtObf.Clear();
+            txtTrgIx.Clear();
+            txtTrgWx.Clear();
 
             // **Überschrift einstellen
             lbProfil.Visibility = Visibility.Visible;
@@ -362,7 +365,8 @@ namespace Profil_Rechner_GUI
                             */
 
                            Geo = new Dreieck(Convert.ToDouble(txt1.Text),Convert.ToDouble(txt2.Text), Convert.ToDouble(txtLäng.Text));
-                           
+
+                            txtTrgIx.Text = Geo.GetFlaechenTraegheit_Ix().ToString();
 
                             break;
                         }
@@ -395,7 +399,8 @@ namespace Profil_Rechner_GUI
                 // throw new ConsistencyException("Was für ein Blödsinn");
 
                 //Ausgabe des Volumens
-                txtVol.Text = Geo.GetVolumen().ToString();
+                txtVol.Text = Geo.GetVolumen().ToString(); 
+                txtObf.Text = Geo.GetOberflaeche().ToString();
             }
             catch(FormatException ex)
             {
