@@ -395,6 +395,11 @@ namespace Profil_Rechner_GUI
                             
                             break;
                         }
+                    case "itmTräger":
+                        {
+                            Geo = new Traeger(Convert.ToDouble(txt1.Text), Convert.ToDouble(txt2.Text), Convert.ToDouble(txt3.Text), Convert.ToDouble(txt4.Text), Convert.ToDouble(txtLäng.Text));
+                            break;
+                        }
                     default: return;
                 }
 
