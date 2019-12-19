@@ -46,11 +46,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Rectangle HorizontalAlignment="Left" Height="76" Margin="0,108,0,0" Stroke="Black" VerticalAlignment="Top" Width="475" Grid.Row="1" Fill="#FF9A9A9B"/>
-
                 <Grid Grid.Row="1" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="210"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
@@ -68,53 +66,50 @@
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
                         <TextBox x:Name="txt1" Margin="5" Width="100" TextChanged="txt1_TextChanged"/>
-                        <Label x:Name="lbZahl1" Margin="5" Content="b"/>
+                        <Label x:Name="lbZahl1" Margin="5" Content="b [mm]"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
                         <TextBox x:Name="txt2" Margin="5" Width="100"/>
-                        <Label x:Name="lbZahl2" Margin="5" Content="h"/>
+                        <Label x:Name="lbZahl2" Margin="5" Content="h [mm]"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
                         <TextBox x:Name="txt3" Margin="5" Width="100"/>
-                        <Label x:Name="lbZahl3" Margin="5" Content="B"/>
+                        <Label x:Name="lbZahl3" Margin="5" Content="B [mm]"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                         <TextBox x:Name="txt4" Margin="5" Width="100"/>
-                        <Label x:Name="lbZahl4" Margin="5" Content="H"/>
+                        <Label x:Name="lbZahl4" Margin="5" Content="H [mm]"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Grid.Row="4  " Grid.Column="0">
-
-                        <TextBox x:Name="txtVol" Margin="5" Width="100"/>
-                        <Label x:Name="lbVol" Margin="5" Content="Volumen"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+                        <TextBox x:Name="txtLäng" Margin="5" Width="100"/>
+                        <Label x:Name="lbLänge" Margin="5" Content="Länge [mm]"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Grid.Row="5  " Grid.Column="0">
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0">
 
-                        <TextBox x:Name="txtObf" Margin="5" Width="100"/>
-                        <Label x:Name="lbObf" Margin="5" Content="Oberfläche"/>
+                        <TextBox x:Name="txtVol" Margin="5" Width="100" Height="25"/>
+                        <Label x:Name="lbVol" Margin="0" Content="Volumen [mm³]"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
+
+                        <TextBox x:Name="txtObf" Margin="5" Width="100" Height="25"/>
+                        <Label x:Name="lbObf" Margin="0" Content="Oberfläche [mm²]"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+
+                        <TextBox x:Name="txtTrgWx" Margin="5" Width="100"/>
+                        <Label x:Name="lbTrgWx" Margin="0" Content="Widerstandsmoment Wy [mm³]"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
 
-                        <TextBox x:Name="txtTrgWx" Margin="5" Width="100"/>
-                        <Label x:Name="lbTrgWx" Margin="5" Content="Biegewiderstandsmoment Wy"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
-
                         <TextBox x:Name="txtTrgIx" Margin="5" Width="100"/>
-                        <Label x:Name="lbTrgIx" Margin="5" Content="Flächenträgheitsmoment Iy"/>
-                    </StackPanel>
-
-
-
-
-                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
-                        <TextBox x:Name="txtLäng" Margin="5" Width="100"/>
-                        <Label x:Name="lbLänge" Margin="5" Content="Länge"/>
+                        <Label x:Name="lbTrgIx" Margin="0" Content="Trägheitsmoment Iy [mm^4]"/>
                     </StackPanel>
 
 
